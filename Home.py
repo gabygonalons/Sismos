@@ -87,7 +87,7 @@ with col3:
 
 st.markdown("---")
 
-######################################### DASSHBOARD #########################################
+########################################################### DASSHBOARD ###################################################
 #CUERPO 2, "Dashboard análisis histórico", filtros, y gráficos
 st.markdown("<h1 style= 'text-align: center;'>Sísmos Mas Importantes</h1>", unsafe_allow_html=True)
 mex = pd.read_csv(r"data mexico for analysis.csv")
@@ -114,43 +114,42 @@ data_jp = jp.filter(['Location Name', 'Latitude', 'Longitude'], axis=1)
 
 st.markdown("<h3 style= 'text-align: right;'>Dashboard</h3>", unsafe_allow_html=True)
 
-############ FITROS PAIS ******
+############ FITROS ******
+st.sidebar.write("# Filtros para las visualizaciones")
+paises = st.sidebar.radio('Seleccione un país de la Tri-Alianza',('Japón','México','EEUU'), horizontal = True)
+if paises == 'Japón':
+    top_loc = top_loc_jp
+    data = data_jp
+    zoom = 4
+    anio = aniojp
+    mm = mmjp
+    sismos_por_anio = sismos_por_aniojp
+elif paises == 'México':
+    top_loc = top_loc_mex
+    data = data_mex
+    zoom = 4
+    anio = aniomex
+    mm = mmjp
+    sismos_por_anio = sismos_por_aniomex
+else:
+    top_loc = top_loc_usa
+    data = data_usa
+    zoom = 2
+    anio = aniousa
+    mm = mmusa
+    sismos_por_anio = sismos_por_aniousa
+
+#year: start_year, end_year = st.slider('Seleccione un rango de año', options
+rango_anios = st.sidebar.select_slider('Selecciona un rango de años', options=list(range(1900, 2021)), value=(1900, 2020))
+
+################################## Gráficos ###################################
 with st.container():
     col1, col2 = st.columns(2)
     with col1:
-        paises = st.radio('Seleccione un país de la Tri-Alianza',('Japón','México','EEUU'), horizontal = True)
-        if paises == 'Japón':
-            top_loc = top_loc_jp
-            data = data_jp
-            zoom = 4
-            anio = aniojp
-            mm = mmjp
-            sismos_por_anio = sismos_por_aniojp
-        elif paises == 'México':
-            top_loc = top_loc_mex
-            data = data_mex
-            zoom = 4
-            anio = aniomex
-            mm = mmjp
-            sismos_por_anio = sismos_por_aniomex
-        else:
-            top_loc = top_loc_usa
-            data = data_usa
-            zoom = 2
-            anio = aniousa
-            mm = mmusa
-            sismos_por_anio = sismos_por_aniousa
-
-    with col2: 
-        #year: start_year, end_year = st.slider('Seleccione un rango de año', options
-        rango_anios = st.select_slider('Selecciona un rango de años', options=list(range(1900, 2021)), value=(1900, 2020))
-    col1, col2 = st.columns(2)
-
-    with col1:
-        
+    
         ##########Grafico 1 col2
         fig = px.bar(y=top_loc.index, x=top_loc.values)
-        fig.update_traces(marker_color='orange')
+        fig.update_traces(marker_color='orange', marker=dict(line=dict(width=2)))
         fig.update_layout(xaxis_title='Localidades', yaxis_title='Cantidad de sismos', title='Cantidad de sismos por localidad')
         st.plotly_chart(fig, use_container_width=True)
 
@@ -201,7 +200,6 @@ with st.container():
 
 st.markdown("---")
 #BARRA LATERAL, las seccionesde documentales
-st.sidebar.write("# Mas información")
 
     
 
