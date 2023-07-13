@@ -115,7 +115,7 @@ data_jp = jp.filter(['Location Name', 'Latitude', 'Longitude'], axis=1)
 st.markdown("<h3 style= 'text-align: right;'>Dashboard</h3>", unsafe_allow_html=True)
 
 ############ FITROS ******
-st.sidebar.write("# Mas información")
+st.sidebar.write("# Filtros para las visualizaciones")
 paises = st.sidebar.radio('Seleccione un país de la Tri-Alianza',('Japón','México','EEUU'), horizontal = True)
 if paises == 'Japón':
     top_loc = top_loc_jp
@@ -200,7 +200,6 @@ with st.container():
 
 st.markdown("---")
 #BARRA LATERAL, las seccionesde documentales
-st.sidebar.write("# Mas información")
 
     
 
