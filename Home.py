@@ -87,7 +87,7 @@ with col3:
 
 st.markdown("---")
 
-########################################################### DASSHBOARD ###################################################
+######################################### DASSHBOARD ###################################################
 #CUERPO 2, "Dashboard análisis histórico", filtros, y gráficos
 st.markdown("<h1 style= 'text-align: center;'>Sísmos Mas Importantes</h1>", unsafe_allow_html=True)
 mex = pd.read_csv(r"data mexico for analysis.csv")
@@ -149,8 +149,8 @@ with st.container():
     
         ##########Grafico 1 col2
         fig = px.bar(y=top_loc.index, x=top_loc.values)
-        fig.update_traces(marker_color='orange', marker=dict(line=dict(width=2)))
-        fig.update_layout(xaxis_title='Localidades', yaxis_title='Cantidad de sismos', title='Cantidad de sismos por localidad')
+        fig.update_traces(marker_color='orange', width=0.5)
+        fig.update_layout(xaxis_title='Localidades', yaxis_title='Cantidad de sismos', title='Cantidad de sismos por localidad', bargap=0.5)
         st.plotly_chart(fig, use_container_width=True)
 
         ##########Grafico 2 COL1
@@ -199,7 +199,13 @@ with st.container():
         st.plotly_chart(fig2, use_container_width=True)
 
 st.markdown("---")
-#BARRA LATERAL, las seccionesde documentales
+
+import streamlit as st
+ # Crear una variable de estado de sesión
+if 'page' not in st.session_state:
+    st.session_state.page = 1
+ # Crear botones para navegar entre las páginas
+
 
     
 
