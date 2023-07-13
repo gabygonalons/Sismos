@@ -116,7 +116,6 @@ st.markdown("<h3 style= 'text-align: right;'>Dashboard</h3>", unsafe_allow_html=
 
 ############ FITROS ******
 st.sidebar.write("# Mas información")
-
     paises = st.radio('Seleccione un país de la Tri-Alianza',('Japón','México','EEUU'), horizontal = True)
     if paises == 'Japón':
         top_loc = top_loc_jp
