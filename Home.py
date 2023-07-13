@@ -116,31 +116,31 @@ st.markdown("<h3 style= 'text-align: right;'>Dashboard</h3>", unsafe_allow_html=
 
 ############ FITROS ******
 st.sidebar.write("# Mas información")
-    paises = st.radio('Seleccione un país de la Tri-Alianza',('Japón','México','EEUU'), horizontal = True)
-    if paises == 'Japón':
-        top_loc = top_loc_jp
-        data = data_jp
-        zoom = 4
-        anio = aniojp
-        mm = mmjp
-        sismos_por_anio = sismos_por_aniojp
-    elif paises == 'México':
-        top_loc = top_loc_mex
-        data = data_mex
-        zoom = 4
-        anio = aniomex
-        mm = mmjp
-        sismos_por_anio = sismos_por_aniomex
-    else:
-        top_loc = top_loc_usa
-        data = data_usa
-        zoom = 2
-        anio = aniousa
-        mm = mmusa
-        sismos_por_anio = sismos_por_aniousa
- 
-    #year: start_year, end_year = st.slider('Seleccione un rango de año', options
-    rango_anios = st.select_slider('Selecciona un rango de años', options=list(range(1900, 2021)), value=(1900, 2020))
+paises = st.sidebar.radio('Seleccione un país de la Tri-Alianza',('Japón','México','EEUU'), horizontal = True)
+if paises == 'Japón':
+    top_loc = top_loc_jp
+    data = data_jp
+    zoom = 4
+    anio = aniojp
+    mm = mmjp
+    sismos_por_anio = sismos_por_aniojp
+elif paises == 'México':
+    top_loc = top_loc_mex
+    data = data_mex
+    zoom = 4
+    anio = aniomex
+    mm = mmjp
+    sismos_por_anio = sismos_por_aniomex
+else:
+    top_loc = top_loc_usa
+    data = data_usa
+    zoom = 2
+    anio = aniousa
+    mm = mmusa
+    sismos_por_anio = sismos_por_aniousa
+
+#year: start_year, end_year = st.slider('Seleccione un rango de año', options
+rango_anios = st.sidebar.select_slider('Selecciona un rango de años', options=list(range(1900, 2021)), value=(1900, 2020))
 
 ################################## Gráficos ###################################
 with st.container():
