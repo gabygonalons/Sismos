@@ -30,7 +30,7 @@ import webbrowser
 st.markdown("### Actividad Últimos minutos")
 if st.button('Earthquake Classification APP'):
     link = 'http://54.233.115.161:8501/'
-    webbrowser.open_new_tab(link)
+    st.markdown(f'<a href="{link}" target="_blank"><button>Earthquake Classification APP</button></a>', unsafe_allow_html=True)
 
 with st.expander("Observación y clasificación sísmica en tiempo real"):
 
@@ -87,10 +87,10 @@ with st.expander("Observación y clasificación sísmica en tiempo real"):
         val = val.split(',')
 
         #EstructurarMapa
-        lon = float(val[0])
-        lat = float(val[1])
-        nota = mldf['Place'].iloc[-2]
-        mag = mldf['Magnitude'].iloc[-2]
+        lon = 137.305
+        lat = 37.55
+        nota = HONSHU: ISHIKAWA TOYAMA
+        mag = 6.2
         mapusa3 = folium.Map(location=[lat,lon], zoom_start=6)
         folium.Marker([lat, lon], popup= nota, tooltip= nota).add_to(mapusa3)
 
