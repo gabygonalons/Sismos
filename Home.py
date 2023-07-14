@@ -394,90 +394,93 @@ with tab2:
         st.plotly_chart(fig, use_container_width=True)
     
     with tab4:
-        ########################################Tasa de satisfacción########################################
-        df = pd.read_csv('data_indicadores.csv')
+        col1, col2 = st.columns(2)
+        with col1:
+            ########################################Tasa de satisfacción########################################
+            df = pd.read_csv('data_indicadores.csv')
 
-        # Convertir la columna 'date' a tipo fecha
-        df['date'] = pd.to_datetime(df['date'])
+            # Convertir la columna 'date' a tipo fecha
+            df['date'] = pd.to_datetime(df['date'])
 
-        # Ordenar los datos por fecha
-        df = df.sort_values('date')
+            # Ordenar los datos por fecha
+            df = df.sort_values('date')
 
-        # Calcular la tasa de satisfacción promedio por mes y asignarla a la columna "satisfaction_month"
-        df['satisfaction_month'] = df.groupby('month')['user satisfaction'].transform('mean')
+            # Calcular la tasa de satisfacción promedio por mes y asignarla a la columna "satisfaction_month"
+            df['satisfaction_month'] = df.groupby('month')['user satisfaction'].transform('mean')
 
-        # Crear la figura del gráfico de la tasa de satisfacción
-        fig = go.Figure()
+            # Crear la figura del gráfico de la tasa de satisfacción
+            fig = go.Figure()
 
-        fig.add_trace(go.Indicator(
-            mode="number+delta",
-            value=df['satisfaction_month'].iloc[-1],  # Último valor de la tasa de satisfacción
-            delta={'reference': df['satisfaction_month'].iloc[-2], 'increasing': {'color': "green"}, 'decreasing': {'color': "red"}},
-            title={'text': "Tasa de satisfacción"},
-            number={"suffix": "%"}
-        ))
+            fig.add_trace(go.Indicator(
+                mode="number+delta",
+                value=df['satisfaction_month'].iloc[-1],  # Último valor de la tasa de satisfacción
+                delta={'reference': df['satisfaction_month'].iloc[-2], 'increasing': {'color': "green"}, 'decreasing': {'color': "red"}},
+                title={'text': "Tasa de satisfacción"},
+                number={"suffix": "%"}
+            ))
 
-        # Configurar la actualización de la tasa de satisfacción en función del control deslizante
-        steps = []
-        for i, row in df.iterrows():
-            step = dict(
-                method='restyle',
-                args=['value', [row['satisfaction_month']]],
-                label=f"Month {row['month']}"
+            # Configurar la actualización de la tasa de satisfacción en función del control deslizante
+            steps = []
+            for i, row in df.iterrows():
+                step = dict(
+                    method='restyle',
+                    args=['value', [row['satisfaction_month']]],
+                    label=f"Month {row['month']}"
+                )
+                steps.append(step)
+
+            sliders = [dict(
+                active=len(df)-1,
+                currentvalue={"xanchor": "center"},
+                pad={"t": 50},
+                steps=steps
+            )]
+
+            fig.update_layout(
+                sliders=sliders,
+                autosize=False,
+                width=500,
+                height=400
             )
-            steps.append(step)
 
-        sliders = [dict(
-            active=len(df)-1,
-            currentvalue={"xanchor": "center"},
-            pad={"t": 50},
-            steps=steps
-        )]
+            st.plotly_chart(fig, use_container_width=True)
+        with col2:
 
-        fig.update_layout(
-            sliders=sliders,
-            autosize=False,
-            width=500,
-            height=400
-        )
+            ########### Gráfico extra tasa de satisfacción ############
+            # Convertir la columna 'date' a tipo fecha
+            df['date'] = pd.to_datetime(df['date'])
 
-        st.plotly_chart(fig, use_container_width=True)
-    
-        ########### Gráfico extra tasa de satisfacción ############
-        # Convertir la columna 'date' a tipo fecha
-        df['date'] = pd.to_datetime(df['date'])
+            # Ordenar los datos por fecha
+            df = df.sort_values('date')
 
-        # Ordenar los datos por fecha
-        df = df.sort_values('date')
+            # Calcular la tasa de satisfacción promedio por mes y asignarla a la columna "satisfaction_month"
+            df['satisfaction_month'] = df.groupby('month')['user satisfaction'].transform('mean')
 
-        # Calcular la tasa de satisfacción promedio por mes y asignarla a la columna "satisfaction_month"
-        df['satisfaction_month'] = df.groupby('month')['user satisfaction'].transform('mean')
+            # Crear el gráfico de línea de tiempo
+            fig = px.line(df, x='date', y='satisfaction_month', title='Tasa de satisfacción a lo largo del tiempo')
 
-        # Crear el gráfico de línea de tiempo
-        fig = px.line(df, x='date', y='satisfaction_month', title='Tasa de satisfacción a lo largo del tiempo')
+            # Configurar la actualización del gráfico de línea de tiempo en función del control deslizante
+            steps = []
+            for i, row in df.iterrows():
+                step = dict(
+                    method='update',
+                    args=[{'x': [df['date'].iloc[:i+1]], 'y': [df['satisfaction_month'].iloc[:i+1]]}],
+                    label=f"Fecha: {row['date']}"
+                )
+                steps.append(step)
 
-        # Configurar la actualización del gráfico de línea de tiempo en función del control deslizante
-        steps = []
-        for i, row in df.iterrows():
-            step = dict(
-                method='update',
-                args=[{'x': [df['date'].iloc[:i+1]], 'y': [df['satisfaction_month'].iloc[:i+1]]}],
-                label=f"Fecha: {row['date']}"
+            sliders = [dict(
+                active=len(df)-1,
+                currentvalue={"xanchor": "center"},
+                pad={"t": 50},
+                steps=steps
+            )]
+
+            fig.update_layout(
+                sliders=sliders
             )
-            steps.append(step)
 
-        sliders = [dict(
-            active=len(df)-1,
-            currentvalue={"xanchor": "center"},
-            pad={"t": 50},
-            steps=steps
-        )]
-
-        fig.update_layout(
-            sliders=sliders
-        )
-
-        st.plotly_chart(fig, use_container_width=True)    
+            st.plotly_chart(fig, use_container_width=True)    
     st.markdown("---")
 
 
