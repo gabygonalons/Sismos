@@ -89,7 +89,7 @@ with st.expander("Observación y clasificación sísmica en tiempo real"):
         #EstructurarMapa
         lon = 137.305
         lat = 37.55
-        nota = HONSHU: ISHIKAWA TOYAMA
+        nota = "HONSHU: ISHIKAWA TOYAMA"
         mag = 6.2
         mapusa3 = folium.Map(location=[lat,lon], zoom_start=6)
         folium.Marker([lat, lon], popup= nota, tooltip= nota).add_to(mapusa3)
