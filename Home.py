@@ -406,30 +406,30 @@ with tab2:
     ))
 
         # Configurar la actualización de la tasa de satisfacción en función del control deslizante
-        steps = []
-        for i, row in df.iterrows():
-            step = dict(
-                method='restyle',
-                args=['value', [row['satisfaction_month']]],
-                label=f"Month {row['month']}"
-            )
-            steps.append(step)
-
-        sliders = [dict(
-            active=len(df)-1,
-            currentvalue={"prefix": "Month ", "visible": True, "xanchor": "center"},
-            pad={"t": 50},
-            steps=steps
-        )]
-
-        fig.update_layout(
-            sliders=sliders,
-            autosize=False,
-            width=400,
-            height=380
+    steps = []
+    for i, row in df.iterrows():
+        step = dict(
+            method='restyle',
+            args=['value', [row['satisfaction_month']]],
+            label=f"Month {row['month']}"
         )
+        steps.append(step)
 
-        st.plotly_chart(fig, use_container_width=True)
+    sliders = [dict(
+        active=len(df)-1,
+        currentvalue={"prefix": "Month ", "visible": True, "xanchor": "center"},
+        pad={"t": 50},
+        steps=steps
+    )]
+
+    fig.update_layout(
+        sliders=sliders,
+        autosize=False,
+        width=400,
+        height=380
+    )
+
+    st.plotly_chart(fig, use_container_width=True)
 
 
 
