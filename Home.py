@@ -90,7 +90,7 @@ st.markdown("---")
 
 ######################################### DASSHBOARD ###################################################
 #CUERPO 2, "Dashboard análisis histórico", filtros, y gráficos
-st.markdown("<h1 style= 'text-align: center;'>Sismos Mas Importantes</h1>", unsafe_allow_html=True)
+st.markdown("<h3 style= 'text-align: center;'>Datos Históricos y Rendimiento del Proyecto</h3>", unsafe_allow_html=True)
 mex = pd.read_csv(r"data mexico for analysis.csv")
 jp = pd.read_csv(r"data japan for analysis.csv")
 usa = pd.read_csv(r"data usa for analysis.csv")
@@ -198,8 +198,10 @@ with tab1:
             # Crear el segundo gráfico de líneas
             fig2 = px.line(x=sismos_filtrados.index, y=sismos_filtrados.values, markers=True)
             fig2.update_traces(line=dict(color='orange'))
-            fig2.update_layout(xaxis_title='Año', yaxis_title='Cantidad de sismos', title='Cantidad de sismos por año', margin = dict(b=36), height=315)
+            fig2.update_layout(xaxis_title='Año', yaxis_title='Cantidad de sismos', title='Sismos por año', margin = dict(b=36), height=315)
             st.plotly_chart(fig2, use_container_width=True)
+    
+    st.markdown("***La Escala de Mercalli*** evalúa los efectos y daños observados en estructuras, personas y el entorno. Esta escala va desde el grado I (no se siente) hasta el grado XII (daños totales).")
 
 with tab2:
     df = pd.read_csv('data_indicadores.csv')
@@ -316,8 +318,72 @@ with tab2:
 
     col1, col2 = st.columns(2)
     with col1:
+            # Ordenar los datos por fecha
+            # Obtiene los meses únicos en el DataFrame "kpi"
+        meses_unicos = df['month'].unique()
+
+        # Diccionario para almacenar los promedios por mes
+        promedios_por_mes = {}
+
+        # Calcula el promedio del tiempo de ejecución para cada mes y guarda los resultados
+        for mes in meses_unicos:
+            promedio_mes = df[df['month'] == mes]['execution time'].mean()
+
+            promedios_por_mes[mes] = promedio_mes
+        # Convertir la columna 'date' a tipo fecha
+        df['date'] = pd.to_datetime(df['date'])
+
         # Ordenar los datos por fecha
-        st.markdown("KPI FALTANTE")
+        df = df.sort_values('date')
+
+        # Calcular el tiempo de ejecución promedio por mes
+        df['te'] = promedios_por_mes
+
+        # Crear la figura del gráfico de la tasa de fallos
+        fig = go.Figure()
+
+        fig.add_trace(go.Indicator(
+            mode="number+gauge+delta",
+            value=df['failure_rate'].iloc[-1],  # Último valor de la tasa
+            delta={'reference': df['te'].iloc[-2], 'increasing': {'color': "red"}},
+            domain={'x': [0.1, 0.9], 'y': [0.2, 0.9]},
+            title={'text': "Tiempo de ejecución"},
+            gauge={
+                'shape': 'angular',
+                'axis': {'range': [0, max(df['te']) + 10]},  # Ajustar el rango del eje vertical
+                'bar': {'color': "orange"},
+                'steps': [
+                    {'range': [0, max(df['failure_rate'])], 'color': 'white'},
+                ]
+            }
+        ))
+
+        # Configurar la actualización de los tiempos de ejecución en función del control deslizante
+        steps = []
+        for i, row in df.iterrows():
+            step = dict(
+                method='restyle',
+                args=['value', [row['execution time']]],
+                label=f" Month {row['month']}"
+            )
+            steps.append(step)
+
+        sliders = [dict(
+            active=len(df)-1,
+            currentvalue={"prefix": "Month ", "visible": True, "xanchor": "center"},
+            pad={"t": 50},
+            steps=steps
+        )]
+
+        fig.update_layout(
+            sliders=sliders,
+            autosize=False,
+            width=500,
+            height=400
+        )
+
+        st.plotly_chart(fig, use_container_width=True)
+
     with col2:
         df = df.sort_values('date')
 
