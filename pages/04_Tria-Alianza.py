@@ -1,9 +1,9 @@
 import streamlit as st
 
 #Título h1
-st.markdown("# Tri-Alianza")
+st.markdown("# Alianza tri-nacional")
 #Título h2
-st.markdown("## ¿Qué es la Tri-Alianza?")
+st.markdown("## ¿Qué es la Alianza tri-nacional?")
 #Parrafo 1
 st.markdown("")
 #Título h3
