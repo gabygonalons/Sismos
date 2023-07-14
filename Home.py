@@ -17,12 +17,19 @@ st.set_page_config(
 ######################################### Cabecera #########################################
 #HEADER, "Título" o banner, aún se decide.
 st.title("Sistema de Notificación Sísmica")
+
+
 st.markdown('“Working towards global standardization of seismological networks and effective communication to the civilian community. ” ')
+
 st.markdown("---")
 
 ######################################### RESULTADO ML #####################################
 #CUERPO 1, "Machine learning", mapas y últimas alertas.
 st.markdown("### Actividad últimos minutos")
+if st.button('Earthquake Classfication APP'):
+    link='[Real Time Earthquake Classfication APP](http://54.233.115.161:8501/)'
+    st.markdown(link,unsafe_allow_html=True)
+
 with st.expander("Observación y clasificación sísmica en tiempo real"):
 
     #Crear columnas
@@ -149,7 +156,7 @@ rango_anios = st.sidebar.select_slider('Selecciona un rango de años', options=l
 
 ################################## Gráficos ###################################
 
-tab1, tab2 = st.tabs(["Sísmos Importantes", "KPIs"])
+tab1, tab2 = st.tabs(["     Sísmos Importantes     ", "     KPIs     "])
 with tab1:
     with st.container():
         col1, col2 = st.columns(2)
@@ -210,6 +217,7 @@ with tab1:
         st.markdown("***La Escala de Mercalli*** evalúa los efectos y daños observados en estructuras, personas y el entorno. Esta escala va desde el grado I (no se siente) hasta el grado XII (daños totales).")
 
 with tab2:
+    ################################## KPIs######################################################################
     tab1, tab2, tab3, tab4 = st.tabs(["Tasa de Click de la notificación de la app", "Tasa de fallos", "Tiempo de Ejecución", "Tasa de satisfacción" ])
     df = pd.read_csv('data_indicadores.csv')
     col1, col2 = st.columns(2)
@@ -480,7 +488,7 @@ with tab2:
                 sliders=sliders
             )
 
-            pio.show(fig)
+            st.plotly_chart(fig, use_container_width=True)
 
 st.markdown("---")
 
