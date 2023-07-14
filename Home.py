@@ -25,10 +25,12 @@ st.markdown("---")
 
 ######################################### RESULTADO ML #####################################
 #CUERPO 1, "Machine learning", mapas y últimas alertas.
-st.markdown("### Actividad últimos minutos")
-if st.button('Earthquake Classfication APP'):
-    link='[Real Time Earthquake Classfication APP](http://54.233.115.161:8501/)'
-    st.markdown(link,unsafe_allow_html=True)
+import webbrowser
+
+st.markdown("### Actividad Últimos minutos")
+if st.button('Earthquake Classification APP'):
+    link = 'http://54.233.115.161:8501/'
+    webbrowser.open_new_tab(link)
 
 with st.expander("Observación y clasificación sísmica en tiempo real"):
 
