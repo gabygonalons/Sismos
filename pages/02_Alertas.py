@@ -1,7 +1,7 @@
 import streamlit as st 
 
 #Título H1
-st.markdown("#Alertas")
+st.markdown("# Alertas")
 #título h2
 st.markdown("## ¿Qué son las Alertas sísmicas?")
 #parrafo 1
