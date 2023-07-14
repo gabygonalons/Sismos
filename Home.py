@@ -7,6 +7,12 @@ import plotly.express as px
 import plotly.graph_objects as go
 import plotly.io as pio
 
+######################################## Configuración #################################
+st.set_page_config(
+    page_title="Sismos-Notificación",
+    page_icon="🌎",
+    layout="wide",
+    initial_sidebar_state="expanded")
 
 ######################################### Cabecera #########################################
 #HEADER, "Título" o banner, aún se decide.
@@ -17,74 +23,74 @@ st.markdown("---")
 ######################################### RESULTADO ML #####################################
 #CUERPO 1, "Machine learning", mapas y últimas alertas.
 st.markdown("### Actividad últimos minutos")
-st.markdown("Observación y clasificación sísmica en tiempo real")
+with st.expander("Observación y clasificación sísmica en tiempo real"):
 
-#Crear columnas
-col1, col2, col3 = st.columns(3)
+    #Crear columnas
+    col1, col2, col3 = st.columns(3)
 
-with col1:
-    #Transformación de la data
-    mldf = pd.read_csv(r"combined_earthquake_data.csv")
-    ultimosism = mldf["Coordinates"].iloc[-1]
-    val = ultimosism.replace('[', '')
-    val = val.replace(']','')
-    val = val.replace(' ','')
-    val = val.split(',')
+    with col1:
+        #Transformación de la data
+        mldf = pd.read_csv(r"combined_earthquake_data.csv")
+        ultimosism = mldf["Coordinates"].iloc[-1]
+        val = ultimosism.replace('[', '')
+        val = val.replace(']','')
+        val = val.replace(' ','')
+        val = val.split(',')
 
-    #EstructurarMapa
-    lon = float(val[0])
-    lat = float(val[1])
-    nota = mldf['Place'].iloc[-1]
-    mag = mldf['Magnitude'].iloc[-1]
-    mapusa1 = folium.Map(location=[lat,lon], zoom_start=6)
-    folium.Marker([lat, lon], popup= nota, tooltip= nota).add_to(mapusa1)
-    #Título del Mapa
-    st.markdown("### ***EEUU***")
-    #Mostrar Mapa USA
-    st_data = st_folium(mapusa1, height=250 ,width=220)
-    #El texto de la alerta enviada   
-    st.write("***Alertas enviada:***", nota, "/ *Magnitud:*", str(mag))
+        #EstructurarMapa
+        lon = float(val[0])
+        lat = float(val[1])
+        nota = mldf['Place'].iloc[-1]
+        mag = mldf['Magnitude'].iloc[-1]
+        mapusa1 = folium.Map(location=[lat,lon], zoom_start=6)
+        folium.Marker([lat, lon], popup= nota, tooltip= nota).add_to(mapusa1)
+        #Título del Mapa
+        st.markdown("### ***EEUU***")
+        #Mostrar Mapa USA
+        st_data = st_folium(mapusa1, height=250 ,width=220)
+        #El texto de la alerta enviada   
+        st.write("***Alertas enviada:***", nota, "/ *Magnitud:*", str(mag))
 
-with col2:
-    #Transformación de la data
-    mexico = pd.read_csv(r'earthquakes_mexico.csv')
-        
-    #EstructurarMapa
-    lon = mexico['Longitud'].iloc[-1]
-    lat = mexico['Latitud'].iloc[-1]
-    nota = mexico['Lugar'].iloc[-1]
-    mag = mexico['Magnitud'].iloc[-1]
-    mapmx = folium.Map(location=[lat,lon], zoom_start=6)
-    folium.Marker([lat, lon], popup= nota, tooltip= nota).add_to(mapmx)
-    #Título del Mapa 
-    st.markdown("### ***MÉXICO***")
-    #Mostrar Mapa México 
-    st_data = st_folium(mapmx, height=250 ,width=220)
-    #El texto de la alerta enviada    
-    st.write("***Alertas enviada:***", nota, "/ *Magnitud:*", str(mag))
+    with col2:
+        #Transformación de la data
+        mexico = pd.read_csv(r'earthquakes_mexico.csv')
+            
+        #EstructurarMapa
+        lon = mexico['Longitud'].iloc[-1]
+        lat = mexico['Latitud'].iloc[-1]
+        nota = mexico['Lugar'].iloc[-1]
+        mag = mexico['Magnitud'].iloc[-1]
+        mapmx = folium.Map(location=[lat,lon], zoom_start=6)
+        folium.Marker([lat, lon], popup= nota, tooltip= nota).add_to(mapmx)
+        #Título del Mapa 
+        st.markdown("### ***MÉXICO***")
+        #Mostrar Mapa México 
+        st_data = st_folium(mapmx, height=250 ,width=220)
+        #El texto de la alerta enviada    
+        st.write("***Alertas enviada:***", nota, "/ *Magnitud:*", str(mag))
 
-with col3:
-    #Transformación de la data
-    ultimosism = mldf["Coordinates"].iloc[-2]
-    val = ultimosism.replace('[', '')
-    val = val.replace(']','')
-    val = val.replace(' ','')
-    val = val.split(',')
+    with col3:
+        #Transformación de la data
+        ultimosism = mldf["Coordinates"].iloc[-2]
+        val = ultimosism.replace('[', '')
+        val = val.replace(']','')
+        val = val.replace(' ','')
+        val = val.split(',')
 
-    #EstructurarMapa
-    lon = float(val[0])
-    lat = float(val[1])
-    nota = mldf['Place'].iloc[-2]
-    mag = mldf['Magnitude'].iloc[-2]
-    mapusa3 = folium.Map(location=[lat,lon], zoom_start=6)
-    folium.Marker([lat, lon], popup= nota, tooltip= nota).add_to(mapusa3)
+        #EstructurarMapa
+        lon = float(val[0])
+        lat = float(val[1])
+        nota = mldf['Place'].iloc[-2]
+        mag = mldf['Magnitude'].iloc[-2]
+        mapusa3 = folium.Map(location=[lat,lon], zoom_start=6)
+        folium.Marker([lat, lon], popup= nota, tooltip= nota).add_to(mapusa3)
 
-    #Título del Mapa
-    st.markdown("### ***JAPÓN***")
-    #Mostrar Mapa Japón
-    st_data = st_folium(mapusa3, height=250 ,width=220)
-    #El texto de la alerta enviada
-    st.write("***Alertas enviada:***", nota, "/ *Magnitud:*", str(mag))
+        #Título del Mapa
+        st.markdown("### ***JAPÓN***")
+        #Mostrar Mapa Japón
+        st_data = st_folium(mapusa3, height=250 ,width=220)
+        #El texto de la alerta enviada
+        st.write("***Alertas enviada:***", nota, "/ *Magnitud:*", str(mag))
 
 st.markdown("---")
 
@@ -204,9 +210,10 @@ with tab1:
     st.markdown("***La Escala de Mercalli*** evalúa los efectos y daños observados en estructuras, personas y el entorno. Esta escala va desde el grado I (no se siente) hasta el grado XII (daños totales).")
 
 with tab2:
+    tab1, tab2, tab3, tab4 = st.tabs(["Tasa de Click de la notificación de la app", "Tasa de fallos", "Tiempo de Ejecución", "Tasa de satisfacción" ])
     df = pd.read_csv('data_indicadores.csv')
-    col1, col2 = st.columns(2)
-    with col1:
+    with tab1:
+        ###################################Tasa de Click de la notificación de la app##################
         # Convertir la columna 'date' a tipo fecha
         df['date'] = pd.to_datetime(df['date'])
 
@@ -230,7 +237,7 @@ with tab2:
                 'axis': {'range': [0, 100]},  # Actualizar el rango del eje vertical
                 'bar': {'color': "orange"},
                 'steps': [
-                    {'range': [0, 100], 'color': 'lightgray'},  # Eliminar los rangos de color
+                    {'range': [0, 100], 'color': 'white'},  # Eliminar los rangos de color
                 ]
             }
         ))
@@ -247,7 +254,7 @@ with tab2:
 
         sliders = [dict(
             active=len(df)-1,
-            currentvalue={"prefix": "Week ", "visible": True, "xanchor": "center"},
+            currentvalue={ "xanchor": "center"},
             pad={"t": 50},
             steps=steps
         )]
@@ -261,7 +268,8 @@ with tab2:
 
         st.plotly_chart(fig, use_container_width=True)
 
-    with col2:
+    with tab2:    
+        ########################################### Tasa de fallos
         # Convertir la columna 'date' a tipo fecha
         df['date'] = pd.to_datetime(df['date'])
 
@@ -271,21 +279,25 @@ with tab2:
         # Calcular la tasa de fallos
         df['failure_rate'] = (df['failure_count'] / df['total users']) * 100
 
+        # Obtener el último valor y el penúltimo valor de la tasa de fallos
+        last_value = df['failure_rate'].iloc[-1]
+        previous_value = df['failure_rate'].iloc[-2]
+
         # Crear la figura del gráfico de la tasa de fallos
         fig = go.Figure()
 
         fig.add_trace(go.Indicator(
             mode="number+gauge+delta",
-            value=df['failure_rate'].iloc[-1],  # Último valor de la tasa de fallos
-            delta={'reference': df['failure_rate'].iloc[-2], 'increasing': {'color': "red"}},
+            value=last_value,
+            delta={'reference': previous_value, 'increasing': {'color': "red"}, 'decreasing': {'color': "green"}},
             domain={'x': [0.1, 0.9], 'y': [0.2, 0.9]},
             title={'text': "Tasa de fallos"},
             gauge={
                 'shape': 'angular',
-                'axis': {'range': [0, max(df['failure_rate']) + 10]},  # Ajustar el rango del eje vertical
+                'axis': {'range': [0, 10]},  # Modificar el rango del eje vertical
                 'bar': {'color': "orange"},
                 'steps': [
-                    {'range': [0, max(df['failure_rate'])], 'color': 'lightgray'},
+                    {'range': [0, max(df['failure_rate'])], 'color': 'white'},
                 ]
             }
         ))
@@ -301,8 +313,8 @@ with tab2:
             steps.append(step)
 
         sliders = [dict(
-            active=len(df)-1,
-            currentvalue={"prefix": "Week ", "visible": True, "xanchor": "center"},
+            active=len(df) - 1,
+            currentvalue={"xanchor": "center"},
             pad={"t": 50},
             steps=steps
         )]
@@ -315,62 +327,57 @@ with tab2:
         )
 
         st.plotly_chart(fig, use_container_width=True)
+    
+    with tab3:
+        ################################"Tiempo de Ejecución"###############################
+        # Crear el DataFrame con datos resumidos
+        df = pd.DataFrame({
+            'date': ['2023-01-01', '2023-01-02', '2023-01-03', '2023-01-04', '2023-01-05', ...],
+            'execution_avg': [2.00, 6.00, 8.00, 2.00, 2.00, ...],
+            'month': [1, 1, 1, 1, 1, ...],
+            'day': [1, 2, 3, 4, 5, ...]
+        })
 
-    col1, col2 = st.columns(2)
-    with col1:
-            # Ordenar los datos por fecha
-            # Obtiene los meses únicos en el DataFrame "kpi"
-        meses_unicos = df['month'].unique()
-
-        # Diccionario para almacenar los promedios por mes
-        promedios_por_mes = {}
-
-        # Calcula el promedio del tiempo de ejecución para cada mes y guarda los resultados
-        for mes in meses_unicos:
-            promedio_mes = df[df['month'] == mes]['execution time'].mean()
-
-            promedios_por_mes[mes] = promedio_mes
         # Convertir la columna 'date' a tipo fecha
-        df['date'] = pd.to_datetime(df['date'])
+        df['date'] = pd.to_datetime(df['date'], errors='coerce')
 
-        # Ordenar los datos por fecha
-        df = df.sort_values('date')
+        # Filtrar los últimos 6 meses
+        last_6_months = pd.date_range(end=df['date'].max(), periods=6, freq='D')
+        df = df[df['date'].isin(last_6_months)]
 
-        # Calcular el tiempo de ejecución promedio por mes
-        df['te'] = promedios_por_mes
+        # Calcular la diferencia respecto al día anterior
+        df['execution_diff'] = df['execution_avg'].diff()
 
-        # Crear la figura del gráfico de la tasa de fallos
-        fig = go.Figure()
-
-        fig.add_trace(go.Indicator(
+        # Crear la figura del gráfico del indicador de tiempo promedio de ejecución
+        fig = go.Figure(go.Indicator(
             mode="number+gauge+delta",
-            value=df['failure_rate'].iloc[-1],  # Último valor de la tasa
-            delta={'reference': df['te'].iloc[-2], 'increasing': {'color': "red"}},
-            domain={'x': [0.1, 0.9], 'y': [0.2, 0.9]},
-            title={'text': "Tiempo de ejecución"},
-            gauge={
-                'shape': 'angular',
-                'axis': {'range': [0, max(df['te']) + 10]},  # Ajustar el rango del eje vertical
-                'bar': {'color': "orange"},
-                'steps': [
-                    {'range': [0, max(df['failure_rate'])], 'color': 'white'},
-                ]
+            gauge={'shape': "bullet", 'bar': {'color': 'orange'}},  # Cambiar el color de la barra a naranja
+            value=df['execution_avg'].iloc[-1],  # Último valor del tiempo promedio de ejecución
+            delta={'reference': df['execution_avg'].iloc[-2], 'relative': True, 'increasing': {'color': "red"}},
+            domain={'x': [0.1, 1], 'y': [0.2, 0.9]},
+            title={'text': "Tiempo<br>Promedio<br>de Ejecución", 'font': {'size': 18}},
+            gauge_axis={
+                'range': [0, 10],  # Rango de valores para la barra verde (0 ms a 10 ms)
+                'tickmode': 'array',
+                'tickvals': [0, 2, 4, 6, 8, 10],  # Valores de los ticks inferiores (0 ms a 10 ms)
+                'ticktext': ['0 ms', '2 ms', '4 ms', '6 ms', '8 ms', '10 ms']  # Texto de los ticks inferiores
             }
         ))
 
-        # Configurar la actualización de los tiempos de ejecución en función del control deslizante
+        # Configurar la actualización interactiva del tiempo promedio de ejecución en función del control deslizante
         steps = []
+        dates = ['14 Jul', '15 Jul', '16 Jul', '17 Jul', '18 Jul']  # Fechas personalizadas
         for i, row in df.iterrows():
             step = dict(
                 method='restyle',
-                args=['value', [row['execution time']]],
-                label=f" Month {row['month']}"
+                args=['value', [row['execution_avg']]],
+                label=f"Día {dates[i]}"  # Etiqueta personalizada para cada día
             )
             steps.append(step)
 
         sliders = [dict(
-            active=len(df)-1,
-            currentvalue={"prefix": "Month ", "visible": True, "xanchor": "center"},
+            active=len(df) - 1,
+            currentvalue={"prefix": "Fecha: ", "visible": True, "xanchor": "center"},
             pad={"t": 50},
             steps=steps
         )]
@@ -378,13 +385,22 @@ with tab2:
         fig.update_layout(
             sliders=sliders,
             autosize=False,
-            width=500,
-            height=400
+            width=700,
+            height=400,
+            showlegend=False  # Eliminar leyenda de la barra interactiva
         )
 
+        # Mostrar el gráfico interactivo
         st.plotly_chart(fig, use_container_width=True)
+    
+    with tab4:
+        ########################################Tasa de satisfacción########################################
+        df = pd.read_csv('data_indicadores.csv')
 
-    with col2:
+        # Convertir la columna 'date' a tipo fecha
+        df['date'] = pd.to_datetime(df['date'])
+
+        # Ordenar los datos por fecha
         df = df.sort_values('date')
 
         # Calcular la tasa de satisfacción promedio por mes y asignarla a la columna "satisfaction_month"
@@ -394,19 +410,11 @@ with tab2:
         fig = go.Figure()
 
         fig.add_trace(go.Indicator(
-            mode="number+gauge+delta",
+            mode="number+delta",
             value=df['satisfaction_month'].iloc[-1],  # Último valor de la tasa de satisfacción
-            delta={'reference': df['satisfaction_month'].iloc[-2], 'increasing': {'color': "red"}},
-            domain={'x': [0.1, 0.9], 'y': [0.2, 0.9]},
+            delta={'reference': df['satisfaction_month'].iloc[-2], 'increasing': {'color': "green"}, 'decreasing': {'color': "red"}},
             title={'text': "Tasa de satisfacción"},
-            gauge={
-                'shape': 'angular',
-                'axis': {'range': [0, max(df['satisfaction_month']) + 10]},  # Ajustar el rango del eje vertical
-                'bar': {'color': "orange"},
-                'steps': [
-                    {'range': [0, max(df['satisfaction_month'])], 'color': 'lightgray'},
-                ]
-            }
+            number={"suffix": "%"}
         ))
 
         # Configurar la actualización de la tasa de satisfacción en función del control deslizante
@@ -421,7 +429,7 @@ with tab2:
 
         sliders = [dict(
             active=len(df)-1,
-            currentvalue={"prefix": "Month ", "visible": True, "xanchor": "center"},
+            currentvalue={"xanchor": "center"},
             pad={"t": 50},
             steps=steps
         )]
@@ -434,11 +442,43 @@ with tab2:
         )
 
         st.plotly_chart(fig, use_container_width=True)
+    
+        ########### Gráfico extra tasa de satisfacción ############
+        # Convertir la columna 'date' a tipo fecha
+        df['date'] = pd.to_datetime(df['date'])
 
+        # Ordenar los datos por fecha
+        df = df.sort_values('date')
 
+        # Calcular la tasa de satisfacción promedio por mes y asignarla a la columna "satisfaction_month"
+        df['satisfaction_month'] = df.groupby('month')['user satisfaction'].transform('mean')
 
+        # Crear el gráfico de línea de tiempo
+        fig = px.line(df, x='date', y='satisfaction_month', title='Tasa de satisfacción a lo largo del tiempo')
 
-st.markdown("---")
+        # Configurar la actualización del gráfico de línea de tiempo en función del control deslizante
+        steps = []
+        for i, row in df.iterrows():
+            step = dict(
+                method='update',
+                args=[{'x': [df['date'].iloc[:i+1]], 'y': [df['satisfaction_month'].iloc[:i+1]]}],
+                label=f"Fecha: {row['date']}"
+            )
+            steps.append(step)
+
+        sliders = [dict(
+            active=len(df)-1,
+            currentvalue={"xanchor": "center"},
+            pad={"t": 50},
+            steps=steps
+        )]
+
+        fig.update_layout(
+            sliders=sliders
+        )
+
+        st.plotly_chart(fig, use_container_width=True)    
+    st.markdown("---")
 
 
      
