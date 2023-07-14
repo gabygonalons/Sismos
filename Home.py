@@ -156,7 +156,7 @@ rango_anios = st.sidebar.select_slider('Selecciona un rango de años', options=l
 
 ################################## Gráficos ###################################
 
-tab1, tab2 = st.tabs(["     Sísmos Importantes     ", "     KPIs     "])
+tab1, tab2 = st.tabs(["     Sismos Importantes     ", "     KPIs     "])
 with tab1:
     with st.container():
         col1, col2 = st.columns(2)
