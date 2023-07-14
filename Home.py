@@ -17,14 +17,21 @@ st.set_page_config(
 ######################################### Cabecera #########################################
 #HEADER, "Título" o banner, aún se decide.
 st.title("Sistema de Notificación Sísmica")
+
+
 st.markdown('“Working towards global standardization of seismological networks and effective communication to the civilian community. ” ')
+
 st.markdown("---")
 
 ######################################### RESULTADO ML #####################################
 #CUERPO 1, "Machine learning", mapas y últimas alertas.
-st.markdown("### Actividad últimos minutos")
-link='[Real Time Earthquake Classfication APP](http://54.233.115.161:8501/)'
-st.markdown(link,unsafe_allow_html=True)
+col1, col2 = st.columns(2)
+with col1:
+    st.markdown("### Actividad últimos minutos")
+with col2:
+    if st.button('Earthquake Classfication APP'):
+        link='[Real Time Earthquake Classfication APP](http://54.233.115.161:8501/)'
+        st.markdown(link,unsafe_allow_html=True)
 
 with st.expander("Observación y clasificación sísmica en tiempo real"):
 
