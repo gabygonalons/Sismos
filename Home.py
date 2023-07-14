@@ -210,6 +210,7 @@ with tab1:
         st.markdown("***La Escala de Mercalli*** evalúa los efectos y daños observados en estructuras, personas y el entorno. Esta escala va desde el grado I (no se siente) hasta el grado XII (daños totales).")
 
 with tab2:
+    ################################## KPIs######################################################################
     tab1, tab2, tab3, tab4 = st.tabs(["Tasa de Click de la notificación de la app", "Tasa de fallos", "Tiempo de Ejecución", "Tasa de satisfacción" ])
     df = pd.read_csv('data_indicadores.csv')
     col1, col2 = st.columns(2)
@@ -480,7 +481,7 @@ with tab2:
                 sliders=sliders
             )
 
-            pio.show(fig)
+            st.plotly_chart(fig, use_container_width=True)
 
 st.markdown("---")
 
