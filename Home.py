@@ -255,8 +255,8 @@ with tab2:
         fig.update_layout(
             sliders=sliders,
             autosize=False,
-            width=500,  
-            height=400  
+            width=400,  
+            height=380  
         )
 
         st.plotly_chart(fig, use_container_width=True)
@@ -310,8 +310,8 @@ with tab2:
         fig.update_layout(
             sliders=sliders,
             autosize=False,
-            width=500,
-            height=400
+            width=400,
+            height=380
         )
 
         st.plotly_chart(fig, use_container_width=True)
@@ -378,8 +378,8 @@ with tab2:
         fig.update_layout(
             sliders=sliders,
             autosize=False,
-            width=500,
-            height=400
+            width=400,
+            height=380
         )
 
         st.plotly_chart(fig, use_container_width=True)
@@ -429,8 +429,8 @@ with tab2:
         fig.update_layout(
             sliders=sliders,
             autosize=False,
-            width=500,
-            height=400
+            width=400,
+            height=380
         )
 
         st.plotly_chart(fig, use_container_width=True)
