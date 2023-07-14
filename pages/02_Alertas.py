@@ -12,5 +12,6 @@ st.markdown("### Tipos de alertas")
 #parrafo 2
 st.markdown("")
 #Títulos h2
-st.markdown("## ¿Que hacer ante una alerta?")
+st.markdown("## ¿Que hacer ante un sismo?")
 #parrafo 3
+<p align="center"><img src="https://japonismo.com/wp-content/uploads/2017/03/escala-shindo-japonesa-japonismo.jpg"></p>
