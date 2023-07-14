@@ -212,8 +212,9 @@ with tab1:
 with tab2:
     tab1, tab2, tab3, tab4 = st.tabs(["Tasa de Click de la notificación de la app", "Tasa de fallos", "Tiempo de Ejecución", "Tasa de satisfacción" ])
     df = pd.read_csv('data_indicadores.csv')
+    col1, col2 = st.columns(2)
     with tab1:
-        ###################################Tasa de Click de la notificación de la app##################
+        #########################Tasa de Click de la notificación de la app
         # Convertir la columna 'date' a tipo fecha
         df['date'] = pd.to_datetime(df['date'])
 
@@ -262,14 +263,15 @@ with tab2:
         fig.update_layout(
             sliders=sliders,
             autosize=False,
-            width=500,  
-            height=400  
+            width=500,
+            height=400
         )
 
         st.plotly_chart(fig, use_container_width=True)
+    
+    with tab2:
 
-    with tab2:    
-        ########################################### Tasa de fallos
+        ###########################"Tasa de fallos"##################
         # Convertir la columna 'date' a tipo fecha
         df['date'] = pd.to_datetime(df['date'])
 
@@ -327,9 +329,9 @@ with tab2:
         )
 
         st.plotly_chart(fig, use_container_width=True)
-    
+  
     with tab3:
-        ################################"Tiempo de Ejecución"###############################
+        ########################## "Tiempo de Ejecución"#######################
         # Crear el DataFrame con datos resumidos
         df = pd.DataFrame({
             'date': ['2023-01-01', '2023-01-02', '2023-01-03', '2023-01-04', '2023-01-05', ...],
@@ -392,11 +394,10 @@ with tab2:
 
         # Mostrar el gráfico interactivo
         st.plotly_chart(fig, use_container_width=True)
-    
+   
     with tab4:
         col1, col2 = st.columns(2)
         with col1:
-            ########################################Tasa de satisfacción########################################
             df = pd.read_csv('data_indicadores.csv')
 
             # Convertir la columna 'date' a tipo fecha
@@ -444,9 +445,8 @@ with tab2:
             )
 
             st.plotly_chart(fig, use_container_width=True)
+        
         with col2:
-
-            ########### Gráfico extra tasa de satisfacción ############
             # Convertir la columna 'date' a tipo fecha
             df['date'] = pd.to_datetime(df['date'])
 
@@ -480,8 +480,9 @@ with tab2:
                 sliders=sliders
             )
 
-            st.plotly_chart(fig, use_container_width=True)    
-    st.markdown("---")
+            pio.show(fig)
+
+st.markdown("---")
 
 
      
