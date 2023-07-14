@@ -23,6 +23,9 @@ st.markdown("---")
 ######################################### RESULTADO ML #####################################
 #CUERPO 1, "Machine learning", mapas y últimas alertas.
 st.markdown("### Actividad últimos minutos")
+link='[eal Time Earthquake Classfication APP](http://54.233.155.161:8501/)'
+st.markdown(link,unsafe_allow_html=True)
+
 with st.expander("Observación y clasificación sísmica en tiempo real"):
 
     #Crear columnas
