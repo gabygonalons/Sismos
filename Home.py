@@ -205,209 +205,205 @@ with tab1:
 
 with tab2:
     df = pd.read_csv('data_indicadores.csv')
-    col1, col2 = st.columns(2)
-    with col1:
-        # Convertir la columna 'date' a tipo fecha
-        df['date'] = pd.to_datetime(df['date'])
+    # Convertir la columna 'date' a tipo fecha
+    df['date'] = pd.to_datetime(df['date'])
+
+    # Ordenar los datos por fecha
+    df = df.sort_values('date')
+
+    # Calcular la tasa de clic de las páginas con oferta premium
+    df['click_rate_pages'] = (df['users on pages with premium offer'] / df['total users']) * 100
+
+    # Crear la figura del gráfico de la tasa de clic
+    fig = go.Figure()
+
+    fig.add_trace(go.Indicator(
+        mode="number+gauge+delta",
+        value=df['click_rate_pages'].iloc[-1],  # Último valor de la tasa de clic
+        delta={'reference': 1.01, 'increasing': {'color': "green"}},
+        domain={'x': [0.1, 0.9], 'y': [0.2, 0.9]},
+        title={'text': "Tasa de Click de la notificación a la app"},
+        gauge={
+            'shape': 'angular',
+            'axis': {'range': [0, 100]},  # Actualizar el rango del eje vertical
+            'bar': {'color': "orange"},
+            'steps': [
+                {'range': [0, 100], 'color': 'lightgray'},  # Eliminar los rangos de color
+            ]
+        }
+    ))
+
+    # Configurar la actualización de la tasa de clic en función del control deslizante
+    steps = []
+    for i, row in df.iterrows():
+        step = dict(
+            method='restyle',
+            args=['value', [row['click_rate_pages']]],
+            label=f"Week {row['month']}-{row['day']}"
+        )
+        steps.append(step)
+
+    sliders = [dict(
+        active=len(df)-1,
+        currentvalue={"prefix": "Week ", "visible": True, "xanchor": "center"},
+        pad={"t": 50},
+        steps=steps
+    )]
+
+    fig.update_layout(
+        sliders=sliders,
+        autosize=False,
+        width=400,  
+        height=380  
+    )
+
+    st.plotly_chart(fig, use_container_width=True)
+
+    # Convertir la columna 'date' a tipo fecha
+    df['date'] = pd.to_datetime(df['date'])
+
+    # Ordenar los datos por fecha
+    df = df.sort_values('date')
+
+    # Calcular la tasa de fallos
+    df['failure_rate'] = (df['failure_count'] / df['total users']) * 100
+
+    # Crear la figura del gráfico de la tasa de fallos
+    fig = go.Figure()
+
+    fig.add_trace(go.Indicator(
+        mode="number+gauge+delta",
+        value=df['failure_rate'].iloc[-1],  # Último valor de la tasa de fallos
+        delta={'reference': df['failure_rate'].iloc[-2], 'increasing': {'color': "red"}},
+        domain={'x': [0.1, 0.9], 'y': [0.2, 0.9]},
+        title={'text': "Tasa de fallos"},
+        gauge={
+            'shape': 'angular',
+            'axis': {'range': [0, max(df['failure_rate']) + 10]},  # Ajustar el rango del eje vertical
+            'bar': {'color': "orange"},
+            'steps': [
+                {'range': [0, max(df['failure_rate'])], 'color': 'lightgray'},
+            ]
+        }
+    ))
+
+    # Configurar la actualización de la tasa de fallos en función del control deslizante
+    steps = []
+    for i, row in df.iterrows():
+        step = dict(
+            method='restyle',
+            args=['value', [row['failure_rate']]],
+            label=f"Week {row['month']}-{row['day']}"
+        )
+        steps.append(step)
+
+    sliders = [dict(
+        active=len(df)-1,
+        currentvalue={"prefix": "Week ", "visible": True, "xanchor": "center"},
+        pad={"t": 50},
+        steps=steps
+    )]
+
+    fig.update_layout(
+        sliders=sliders,
+        autosize=False,
+        width=400,
+        height=380
+    )
+
+    st.plotly_chart(fig, use_container_width=True)
+
 
         # Ordenar los datos por fecha
-        df = df.sort_values('date')
+        # Obtiene los meses únicos en el DataFrame "kpi"
+    meses_unicos = df['month'].unique()
 
-        # Calcular la tasa de clic de las páginas con oferta premium
-        df['click_rate_pages'] = (df['users on pages with premium offer'] / df['total users']) * 100
+    # Diccionario para almacenar los promedios por mes
+    promedios_por_mes = {}
 
-        # Crear la figura del gráfico de la tasa de clic
-        fig = go.Figure()
+    # Calcula el promedio del tiempo de ejecución para cada mes y guarda los resultados
+    for mes in meses_unicos:
+        promedio_mes = df[df['month'] == mes]['execution time'].mean()
 
-        fig.add_trace(go.Indicator(
-            mode="number+gauge+delta",
-            value=df['click_rate_pages'].iloc[-1],  # Último valor de la tasa de clic
-            delta={'reference': 1.01, 'increasing': {'color': "green"}},
-            domain={'x': [0.1, 0.9], 'y': [0.2, 0.9]},
-            title={'text': "Tasa de Click de la notificación a la app"},
-            gauge={
-                'shape': 'angular',
-                'axis': {'range': [0, 100]},  # Actualizar el rango del eje vertical
-                'bar': {'color': "orange"},
-                'steps': [
-                    {'range': [0, 100], 'color': 'lightgray'},  # Eliminar los rangos de color
-                ]
-            }
-        ))
+        promedios_por_mes[mes] = promedio_mes
+    # Convertir la columna 'date' a tipo fecha
+    df['date'] = pd.to_datetime(df['date'])
 
-        # Configurar la actualización de la tasa de clic en función del control deslizante
-        steps = []
-        for i, row in df.iterrows():
-            step = dict(
-                method='restyle',
-                args=['value', [row['click_rate_pages']]],
-                label=f"Week {row['month']}-{row['day']}"
-            )
-            steps.append(step)
+    # Ordenar los datos por fecha
+    df = df.sort_values('date')
 
-        sliders = [dict(
-            active=len(df)-1,
-            currentvalue={"prefix": "Week ", "visible": True, "xanchor": "center"},
-            pad={"t": 50},
-            steps=steps
-        )]
+    # Calcular el tiempo de ejecución promedio por mes
+    df['te'] = promedios_por_mes
 
-        fig.update_layout(
-            sliders=sliders,
-            autosize=False,
-            width=400,  
-            height=380  
+    # Crear la figura del gráfico de la tasa de fallos
+    fig = go.Figure()
+
+    fig.add_trace(go.Indicator(
+        mode="number+gauge+delta",
+        value=df['failure_rate'].iloc[-1],  # Último valor de la tasa
+        delta={'reference': df['te'].iloc[-2], 'increasing': {'color': "red"}},
+        domain={'x': [0.1, 0.9], 'y': [0.2, 0.9]},
+        title={'text': "Tiempo de ejecución"},
+        gauge={
+            'shape': 'angular',
+            'axis': {'range': [0, max(df['te']) + 10]},  # Ajustar el rango del eje vertical
+            'bar': {'color': "orange"},
+            'steps': [
+                {'range': [0, max(df['failure_rate'])], 'color': 'white'},
+            ]
+        }
+    ))
+
+    # Configurar la actualización de los tiempos de ejecución en función del control deslizante
+    steps = []
+    for i, row in df.iterrows():
+        step = dict(
+            method='restyle',
+            args=['value', [row['execution time']]],
+            label=f" Month {row['month']}"
         )
+        steps.append(step)
 
-        st.plotly_chart(fig, use_container_width=True)
+    sliders = [dict(
+        active=len(df)-1,
+        currentvalue={"prefix": "Month ", "visible": True, "xanchor": "center"},
+        pad={"t": 50},
+        steps=steps
+    )]
 
-    with col2:
-        # Convertir la columna 'date' a tipo fecha
-        df['date'] = pd.to_datetime(df['date'])
+    fig.update_layout(
+        sliders=sliders,
+        autosize=False,
+        width=400,
+        height=380
+    )
 
-        # Ordenar los datos por fecha
-        df = df.sort_values('date')
+    st.plotly_chart(fig, use_container_width=True)
 
-        # Calcular la tasa de fallos
-        df['failure_rate'] = (df['failure_count'] / df['total users']) * 100
 
-        # Crear la figura del gráfico de la tasa de fallos
-        fig = go.Figure()
+    df = df.sort_values('date')
 
-        fig.add_trace(go.Indicator(
-            mode="number+gauge+delta",
-            value=df['failure_rate'].iloc[-1],  # Último valor de la tasa de fallos
-            delta={'reference': df['failure_rate'].iloc[-2], 'increasing': {'color': "red"}},
-            domain={'x': [0.1, 0.9], 'y': [0.2, 0.9]},
-            title={'text': "Tasa de fallos"},
-            gauge={
-                'shape': 'angular',
-                'axis': {'range': [0, max(df['failure_rate']) + 10]},  # Ajustar el rango del eje vertical
-                'bar': {'color': "orange"},
-                'steps': [
-                    {'range': [0, max(df['failure_rate'])], 'color': 'lightgray'},
-                ]
-            }
-        ))
+    # Calcular la tasa de satisfacción promedio por mes y asignarla a la columna "satisfaction_month"
+    df['satisfaction_month'] = df.groupby('month')['user satisfaction'].transform('mean')
 
-        # Configurar la actualización de la tasa de fallos en función del control deslizante
-        steps = []
-        for i, row in df.iterrows():
-            step = dict(
-                method='restyle',
-                args=['value', [row['failure_rate']]],
-                label=f"Week {row['month']}-{row['day']}"
-            )
-            steps.append(step)
+    # Crear la figura del gráfico de la tasa de satisfacción
+    fig = go.Figure()
 
-        sliders = [dict(
-            active=len(df)-1,
-            currentvalue={"prefix": "Week ", "visible": True, "xanchor": "center"},
-            pad={"t": 50},
-            steps=steps
-        )]
-
-        fig.update_layout(
-            sliders=sliders,
-            autosize=False,
-            width=400,
-            height=380
-        )
-
-        st.plotly_chart(fig, use_container_width=True)
-
-    col1, col2 = st.columns(2)
-    with col1:
-            # Ordenar los datos por fecha
-            # Obtiene los meses únicos en el DataFrame "kpi"
-        meses_unicos = df['month'].unique()
-
-        # Diccionario para almacenar los promedios por mes
-        promedios_por_mes = {}
-
-        # Calcula el promedio del tiempo de ejecución para cada mes y guarda los resultados
-        for mes in meses_unicos:
-            promedio_mes = df[df['month'] == mes]['execution time'].mean()
-
-            promedios_por_mes[mes] = promedio_mes
-        # Convertir la columna 'date' a tipo fecha
-        df['date'] = pd.to_datetime(df['date'])
-
-        # Ordenar los datos por fecha
-        df = df.sort_values('date')
-
-        # Calcular el tiempo de ejecución promedio por mes
-        df['te'] = promedios_por_mes
-
-        # Crear la figura del gráfico de la tasa de fallos
-        fig = go.Figure()
-
-        fig.add_trace(go.Indicator(
-            mode="number+gauge+delta",
-            value=df['failure_rate'].iloc[-1],  # Último valor de la tasa
-            delta={'reference': df['te'].iloc[-2], 'increasing': {'color': "red"}},
-            domain={'x': [0.1, 0.9], 'y': [0.2, 0.9]},
-            title={'text': "Tiempo de ejecución"},
-            gauge={
-                'shape': 'angular',
-                'axis': {'range': [0, max(df['te']) + 10]},  # Ajustar el rango del eje vertical
-                'bar': {'color': "orange"},
-                'steps': [
-                    {'range': [0, max(df['failure_rate'])], 'color': 'white'},
-                ]
-            }
-        ))
-
-        # Configurar la actualización de los tiempos de ejecución en función del control deslizante
-        steps = []
-        for i, row in df.iterrows():
-            step = dict(
-                method='restyle',
-                args=['value', [row['execution time']]],
-                label=f" Month {row['month']}"
-            )
-            steps.append(step)
-
-        sliders = [dict(
-            active=len(df)-1,
-            currentvalue={"prefix": "Month ", "visible": True, "xanchor": "center"},
-            pad={"t": 50},
-            steps=steps
-        )]
-
-        fig.update_layout(
-            sliders=sliders,
-            autosize=False,
-            width=400,
-            height=380
-        )
-
-        st.plotly_chart(fig, use_container_width=True)
-
-    with col2:
-        df = df.sort_values('date')
-
-        # Calcular la tasa de satisfacción promedio por mes y asignarla a la columna "satisfaction_month"
-        df['satisfaction_month'] = df.groupby('month')['user satisfaction'].transform('mean')
-
-        # Crear la figura del gráfico de la tasa de satisfacción
-        fig = go.Figure()
-
-        fig.add_trace(go.Indicator(
-            mode="number+gauge+delta",
-            value=df['satisfaction_month'].iloc[-1],  # Último valor de la tasa de satisfacción
-            delta={'reference': df['satisfaction_month'].iloc[-2], 'increasing': {'color': "red"}},
-            domain={'x': [0.1, 0.9], 'y': [0.2, 0.9]},
-            title={'text': "Tasa de satisfacción"},
-            gauge={
-                'shape': 'angular',
-                'axis': {'range': [0, max(df['satisfaction_month']) + 10]},  # Ajustar el rango del eje vertical
-                'bar': {'color': "orange"},
-                'steps': [
-                    {'range': [0, max(df['satisfaction_month'])], 'color': 'lightgray'},
-                ]
-            }
-        ))
+    fig.add_trace(go.Indicator(
+        mode="number+gauge+delta",
+        value=df['satisfaction_month'].iloc[-1],  # Último valor de la tasa de satisfacción
+        delta={'reference': df['satisfaction_month'].iloc[-2], 'increasing': {'color': "red"}},
+        domain={'x': [0.1, 0.9], 'y': [0.2, 0.9]},
+        title={'text': "Tasa de satisfacción"},
+        gauge={
+            'shape': 'angular',
+            'axis': {'range': [0, max(df['satisfaction_month']) + 10]},  # Ajustar el rango del eje vertical
+            'bar': {'color': "orange"},
+            'steps': [
+                {'range': [0, max(df['satisfaction_month'])], 'color': 'lightgray'},
+            ]
+        }
+    ))
 
         # Configurar la actualización de la tasa de satisfacción en función del control deslizante
         steps = []
