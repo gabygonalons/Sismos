@@ -6,6 +6,7 @@ import matplotlib.pyplot as plt
 import plotly.express as px
 import plotly.graph_objects as go
 import plotly.io as pio
+from PIL import Image
 
 ######################################## Configuración #################################
 st.set_page_config(
@@ -16,21 +17,15 @@ st.set_page_config(
 
 ######################################### Cabecera #########################################
 #HEADER, "Título" o banner, aún se decide.
-st.title("Sistema de Notificación Sísmica")
+imghead = Image.open("src\\banner.png")
+st.image(imghead)
 
-
-st.markdown('“Working towards global standardization of seismological networks and effective communication to the civilian community. ” ')
 
 st.markdown("---")
 
 ######################################### RESULTADO ML #####################################
 #CUERPO 1, "Machine learning", mapas y últimas alertas.
-import webbrowser
-
-st.markdown("### Actividad Últimos minutos")
-link = 'http://54.233.115.161:8501/'
-
-st.markdown('<a href="http://54.233.115.161:8501/" target="_blank"><style>.primary {color:#FAF8F8;background-color: #20252C;padding:14px, 26px; font-size:18px; cursor: pointer; border: 1px solid #6E6F6F; border-radius:6px; border-style: groove}</style><button class="primary">Earthquake Classification APP</button></a>', unsafe_allow_html=True)
+st.markdown('<a href="http://54.233.115.161:8501/" target="_blank"><style>.primary {color:#FAF8F8;background-color: #20252C;padding:14px, 26px; font-size:18px; cursor: pointer; border: 1px solid #6E6F6F; border-radius:6px}</style><button class="primary">Earthquake Classification APP</button></a>', unsafe_allow_html=True)
 
 with st.expander("Observación y clasificación sísmica en tiempo real"):
 
@@ -156,6 +151,8 @@ else:
 #year: start_year, end_year = st.slider('Seleccione un rango de año', options
 rango_anios = st.sidebar.select_slider('Selecciona un rango de años', options=list(range(1900, 2023)), value=(1900, 2022))
 
+imgsbase = Image.open("src\logo analytics world.png")
+st.sidebar.image(imgsbase, use_column_width=True)
 ################################## Gráficos ###################################
 
 tab1, tab2 = st.tabs(["       Sísmos Importantes     ", "      KPIs     "])
