@@ -28,9 +28,8 @@ st.markdown("---")
 import webbrowser
 
 st.markdown("### Actividad Últimos minutos")
-if st.button('Earthquake Classification APP'):
-    link = 'http://54.233.115.161:8501/'
-    st.markdown("[](http://54.233.115.161:8501/)")
+link = 'http://54.233.115.161:8501/'
+st.markdown('<a href="http://54.233.115.161:8501/" target="_blank"><button>ML Clasificación</button></a>', unsafe_allow_html=True)
 
 with st.expander("Observación y clasificación sísmica en tiempo real"):
 
