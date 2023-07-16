@@ -30,7 +30,7 @@ import webbrowser
 st.markdown("### Actividad Últimos minutos")
 link = 'http://54.233.115.161:8501/'
 
-st.markdown('</style>.primary {color:#FAF8F8;background-color: inherit;padding:14px, 28px; font-size:20px}<style><a href="http://54.233.115.161:8501/" target="_blank"><button class="btn primary">Earthquake Classification APP</button></a>', unsafe_allow_html=True)
+st.markdown('<a href="http://54.233.115.161:8501/" target="_blank"><style>.primary {color:#FAF8F8;background-color: inherit;padding:14px, 28px; font-size:20px}</style><button class="primary">Earthquake Classification APP</button></a>', unsafe_allow_html=True)
 
 with st.expander("Observación y clasificación sísmica en tiempo real"):
 
