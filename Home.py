@@ -17,7 +17,7 @@ st.set_page_config(
 
 ######################################### Cabecera #########################################
 #HEADER, "Título" o banner, aún se decide.
-imghead = Image.open("src\\banner.png")
+imghead = Image.open("src\banner.png")
 st.image(imgheaf)
 
 
