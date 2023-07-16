@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 import plotly.express as px
 import plotly.graph_objects as go
 import plotly.io as pio
-from PIL import Image
+import pillow
 
 ######################################## Configuración #################################
 st.set_page_config(
