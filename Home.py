@@ -30,7 +30,7 @@ import webbrowser
 st.markdown("### Actividad Últimos minutos")
 link = 'http://54.233.115.161:8501/'
 
-st.markdown('<a href="http://54.233.115.161:8501/" target="_blank"><style>.primary {color:#FAF8F8;background-color: #20252C;padding:14px, 28px; font-size:20px; cursor: pointer; border: 1px solid #6E6F6F; border-radius:7px}</style><button class="primary">Earthquake Classification APP</button></a>', unsafe_allow_html=True)
+st.markdown('<a href="http://54.233.115.161:8501/" target="_blank"><style>.primary {color:#FAF8F8;background-color: #20252C;padding:14px, 26px; font-size:18px; cursor: pointer; border: 1px solid #6E6F6F; border-radius:6px}</style><button class="primary">Earthquake Classification APP</button></a>', unsafe_allow_html=True)
 
 with st.expander("Observación y clasificación sísmica en tiempo real"):
 
@@ -158,7 +158,7 @@ rango_anios = st.sidebar.select_slider('Selecciona un rango de años', options=l
 
 ################################## Gráficos ###################################
 
-tab1, tab2 = st.tabs(["     Sísmos Importantes     ", "     KPIs     "])
+tab1, tab2 = st.tabs(["       Sísmos Importantes     ", "      KPIs     "])
 with tab1:
     with st.container():
         col1, col2 = st.columns(2)
