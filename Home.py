@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 import plotly.express as px
 import plotly.graph_objects as go
 import plotly.io as pio
-import pillow
+from PIL import Image 
 
 ######################################## Configuración #################################
 st.set_page_config(
@@ -17,7 +17,7 @@ st.set_page_config(
 
 ######################################### Cabecera #########################################
 #HEADER, "Título" o banner, aún se decide.
-imghead = Image.open("src\banner.png")
+imghead = Image.open("src/banner.png")
 st.image(imgheaf)
 
 
@@ -151,7 +151,7 @@ else:
 #year: start_year, end_year = st.slider('Seleccione un rango de año', options
 rango_anios = st.sidebar.select_slider('Selecciona un rango de años', options=list(range(1900, 2023)), value=(1900, 2022))
 
-imgsbase = Image.open("src\logo analytics world.png")
+imgsbase = Image.open("src/logo analytics world.png")
 st.sidebar.image(imgsbase, use_column_width=True)
 ################################## Gráficos ###################################
 
