@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 import plotly.express as px
 import plotly.graph_objects as go
 import plotly.io as pio
-from PIL import Image 
+#from PIL import Image 
 
 ######################################## Configuración #################################
 st.set_page_config(
@@ -17,8 +17,8 @@ st.set_page_config(
 
 ######################################### Cabecera #########################################
 #HEADER, "Título" o banner, aún se decide.
-imghead = Image.open("src/banner.png")
-st.image(imgheaf)
+#imghead = Image.open("src/banner.png")
+st.image("https://github.com/Ivan-Cepeda/Sismos/blob/main/src/banner.png")
 
 
 st.markdown("---")
@@ -151,8 +151,8 @@ else:
 #year: start_year, end_year = st.slider('Seleccione un rango de año', options
 rango_anios = st.sidebar.select_slider('Selecciona un rango de años', options=list(range(1900, 2023)), value=(1900, 2022))
 
-imgsbase = Image.open("src/logo analytics world.png")
-st.sidebar.image(imgsbase, use_column_width=True)
+#imgsbase = Image.open("src/logo analytics world.png")
+st.sidebar.image("https://github.com/Ivan-Cepeda/Sismos/blob/main/src/logo%20analytics%20world.png", use_column_width=True)
 ################################## Gráficos ###################################
 
 tab1, tab2 = st.tabs(["       Sísmos Importantes     ", "      KPIs     "])
