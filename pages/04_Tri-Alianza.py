@@ -3,7 +3,7 @@ import streamlit as st
 #Título h1
 st.markdown("# **“Working towards global standardization of seismological networks and effective communication to the civilian community”**")
 #Título h2
-st.markdown("## ¿Qué es la Tri-Alianza?)
+st.markdown("## ¿Qué es la Tri-Alianza?")
 #Párrafo 1
 st.markdown("## La tri-alianza es un acuerdo entre tres países para aunar esfuerzos en post del sostenimiento y la mejora contínua de redes de información sobre eventos sísmicos.")
 #Título h2
