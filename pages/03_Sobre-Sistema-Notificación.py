@@ -5,11 +5,11 @@ import plotly.graph_objects as go # para interactividad
 
 
 #Titulo1
-st.markdown("# Sobre el Sistemea de de Alertas Sísmicas")
+st.markdown("# Sobre el Sistema de Alertas Sísmicas")
 #SupTítulo
 st.markdown("### Sobre el proyecto")
 #Parrafao
-st.markdown("La humanidad ha venido documentando cada uno de estos movimientos telúricos con el fin de crear mecanismos de educación, prevención y predicción. En la actualidad, GSN es una red en tiempo real cuyos datos son generados diariamente por grupos operativos de monitoreo, tanto en los Estados Unidos como a nivel internacional. En los Estados Unidos, el Centro Nacional de Información Sísmica recibe datos de todas las estaciones de GSN a nivel mundial en tiempo real para ubicar terremotos. Los datos de esta red son una entrada esencial para el sistema de alarma automatizado USGS PAGER (localizador) utilizado para evaluar de manera rápida y exacta la gravedad de los daños causados por un terremoto y para proporcionar información a organizaciones de socorro en emergencias, agencias gubernamentales y los medios de comunicación con una estimación del impacto social de la catástrofe potencial.")
+st.markdown("La humanidad ha venido documentando cada uno los estos movimientos telúricos con el fin de crear mecanismos aptos para la educación, prevención y predicción sobre sismos. En la actualidad, **GSN** es una red en tiempo real cuyos datos son generados diariamente por grupos operativos de monitoreo, tanto en los Estados Unidos como a nivel internacional. En los **Estados Unidos**, el *Centro Nacional de Información Sísmica* recibe datos de todas las estaciones de GSN a nivel mundial en tiempo real para ubicar terremotos. Los datos de esta red son una entrada esencial para el sistema de alarma automatizado USGS PAGER (localizador) utilizado para evaluar de manera rápida y exacta la gravedad de los daños causados por un terremoto y para proporcionar información a organizaciones de socorro en emergencias, agencias gubernamentales y los medios de comunicación con una estimación del impacto social de la catástrofe potencial.")
 #Título 2
 st.markdown("## ¿Por qué realizar este sistema de alertas sísmicas?")
 #parrafo 2
@@ -32,7 +32,7 @@ st.markdown("Clasificar los eventos sísmicos a partir de sus características."
 st.markdown("Informar sobre los posibles efectos secundarios de los eventos sísmicos conforme a su clasificación.")
 ##################################KPIs#########################################
 #Título h2
-st.markdown("## Indices Cláves de Rendimiento del Proyecto")
+st.markdown("## Indices Claves de Rendimiento del Proyecto")
 ##################Transformaciones Tiempo de ejecución
 st.markdown("Tasa de Click de la notificación a la app.")
 st.markdown("Disminución de tasa de fallos.")
