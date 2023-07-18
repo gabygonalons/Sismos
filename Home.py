@@ -624,6 +624,7 @@ with col2:
     st.markdown("<h5 style= 'text-align: center;'>Maximiliano Baldomá</h5>", unsafe_allow_html=True)
     st.markdown("<p style= 'text-align: center;'>Data Engeneer</p>", unsafe_allow_html=True)
     st.markdown("<a href='https://www.linkedin.com/in/maximiliano-baldom%C3%A1-182056238/' style='display: block; text-align: center;'>Linkedin</a>", unsafe_allow_html=True)
+    st.markdown('[Linkedin](https://www.linkedin.com/public-profile/settings?trk=d_flagship3_profile_self_view_public_profile)')
     st.markdown('[Github](https://github.com/Maxibaldoma)')
     st.markdown("<div style=‘text-align: center’>Linkedin</div>", unsafe_allow_html=True)
 
