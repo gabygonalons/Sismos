@@ -298,7 +298,7 @@ with tab2:
 
         # Crear el gráfico de dispersión
         fig = px.scatter(scatter_data, x='Total Houses Damaged', y='Total Injuries', text=scatter_data.index,
-                        title='Total de Daño en Casas vs. Cantidad de Heridos por País')
+                        title='Total de Daño en Casas vs. Cantidad de Heridos por País', mode='markers', marker=dict(size=14, color='blue'))
 
         # Personalizar el layout del gráfico
         fig.update_layout(
