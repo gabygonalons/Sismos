@@ -607,28 +607,37 @@ with tab3:
             st.plotly_chart(fig, use_container_width=True)
 
 st.markdown("---")
+st.markdown('### Equipo de Trabajo')
 
 col1, col2, col3, col4 = st.columns(4)
 with col1:
     gaby = Image.open("src/gaby.png")
     st.image(gaby)
+    st.markdown('Gabriela Goñalons')
+    st.markdown('Data Analyst')
     st.markdown('[Linkedin](https://www.linkedin.com/public-profile/settings?trk=d_flagship3_profile_self_view_public_profile)')
     st.markdown('[Github](https://github.com/gabygonalons)')
 
 with col2:
     maxi = Image.open("src/maxi.png")
     st.image(maxi)
+    st.markdown('Maximiliano Baldomá')
+    st.markdown('Data Engeneer')
     st.markdown('[Linkedin](https://www.linkedin.com/in/maximiliano-baldom%C3%A1-182056238/)')
     st.markdown('[Github](https://github.com/Maxibaldoma)')
 
 with col3:
     juanma = Image.open("src/juanma.png")
     st.image(juanma)
+    st.markdown('Juan Manuel Rossi')
+    st.markdown('Data Engeneer')
     st.markdown('[Linkedin](https://www.linkedin.com/in/juan-manuel-rossi-77b578264/)')
     st.markdown('[Github](https://github.com/juanma-rossi)')
 with col4:
     ivan = Image.open("src/ivan.png")
     st.image(ivan)
+    st.markdown('Ivan Cepeda')
+    st.markdown('Data Analyst')
     st.markdown('[Linkedin](https://www.linkedin.com/in/ivancepeda/)')
     st.markdown('[Github](https://github.com/Ivan-Cepeda)')
 
