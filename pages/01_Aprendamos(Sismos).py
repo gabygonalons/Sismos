@@ -37,4 +37,4 @@ st.markdown("Por otro lado resulta relevante conocer la ***intensidad de los sis
 st.markdown("En resumen, la magnitud y la profundidad del sismo proporcionan información sobre la fuerza y el origen del terremoto, mientras que la intensidad nos ayuda a comprender los efectos y el alcance de los daños causados. Estos datos son esenciales para la investigación sísmica, la planificación de la mitigación de riesgos, la respuesta a desastres y el diseño de estructuras resistentes a los terremotos. [Geól. Sergio Almazán](@chematierra)")
 #Párrafo 5
 st.markdown('La percepción de un *sismo* depende de la magnitud, distancia y profundidad del sismo; su peligrosidad aumenta mientras el hipocentro sea más superficial.')
-st.markdown('<img src="https://pbs.twimg.com/media/F1P3GSIagAA5V_R?format=jpg&name=small">')
+st.markdown('<img src="https://pbs.twimg.com/media/F1P3GSIagAA5V_R?format=jpg&name=small">', unsafe_allow_html=True)
