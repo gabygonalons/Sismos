@@ -42,11 +42,18 @@ Los avances tecnológicos han permitido el accceso a los datos prácticamente en
 *Colaborar con la alianza tri-nacional con el máximo nivel de eficacia, eficiencia y profesionalimo.*
 
 ## Objetivos
-
-- Crear una base de datos, con la información sobre la actividad sísmica de los países miembros de la alianza: Estados Unidos, Japón y México.
 - Identificar las zonas de mayor riesgo a través de la individualización de patrones y tendencias dentro de los datos.
 - Clasificar los eventos sísmicos a partir de sus características.
 - Informar sobre los posibles efectos secundarios de los eventos sísmicos conforme a su clasificación.
+
+## Lineas de Acción
+- Crear una base de datos con información de la actividad sísmica histórica de los países miembros de la alianza para obtención de información relevante para la educación, prevención y predicción.
+- Crear una base de datos con información de la actividad sísmica en tiempo real de los países miembros de la alianza para la emisión de alertas sísmicas.
+- Elaborar un sitio web que permita la difusión de la información recopilada y de las actividades realizadas en el marco del presente proyecto.
+
+## Alcance
+
+El proyecto persigue la segmentación, filtrado y transformación de los datos disponibles, acerca de los distintos eventos sísmicos que se encuentren relacionados o tengan implicación con el área geográfica de los países miembros de la alianza.  Esto permitirá disponibilizar ésta información en dos datasets, uno de actualización permanente para la emisión de alertas y otro histórico cuya información resulta de interés para procesos de enseñanza, investigación y previsión.
 
 ## Gestión del Proyecto y Metodología de trabajo: 
 
@@ -55,10 +62,6 @@ En cuanto a la **Gestión del Proyecto** se trabaja en plazos breves, no superio
 ### Equipo de Trabajo
 
 Para la ejecución del proyecto los integrantes del equipo conforman dos grupos: uno de Data Engineer y otro de Data Analyst. 
-
-## Alcance
-
-El proyecto persigue la segmentación, filtrado y transformación de los datos disponibles, acerca de los distintos eventos sísmicos que se encuentren relacionados o tengan implicación con el área geográfica de los países miembros de la alianza tri-Nacional.  Esto permitirá disponibilizar ésta información en dos datasets: uno de actualización permanente para la emisión de Alertas y otro Histórico cuya información resulta de interés para procesos de enseñanza, investigación y previsión.
 
 ## Solución Propuesta
 
@@ -81,6 +84,8 @@ La información a ser utilizada en el Proyecto se obtuvo de los Servicios Web de
 - [**SSN**](http://www.ssn.unam.mx/)
 
 Los datos seleccionados para trabajar se almacenan en tres tablas, una para cada país participante del proyecto: USA, Japón y México.
+<img src=https://i.ibb.co/Vw6C544/Crono-General-3.png>
+
 ## Stack Tecnológico:
 
 **AWS:** Es la herramienta utilizada para la provisión de servicios informáticos en la nube. Seleccionada por la flexibilidad para la selección del sistema operativo, el lenguaje de programación, la plataforma de aplicaciones web y el servicio de datos. Además resulta rentable puesto que se afrontan los gastos de los recursos utilizados sin necesidad de contratos. [AWS](https://aws.amazon.com/es/) 
@@ -92,6 +97,7 @@ Los datos seleccionados para trabajar se almacenan en tres tablas, una para cada
 **Github:** A través de esta plataforma se gestiona el proyecto de manera eficiente, permite la descripción del proyecto en cada una de las etapas así como el almacenamiento de toda la documentación y el código perteneciente al mismo. [Github](https://github.com/juanma-rossi/Alerta-sismica/security)
 
 **Google Meet:** Plataforma de videoconferencia utilizada para las reuniones de monitorio del proyecto por el Project Manager y las reuniones demostrativas con el cliente. Tiene la ventaja de agendar de manera automática en el calendario de google las reuniones y comunicar las mismas a los participantes por correo electrónico.  [Google Meet](https://meet.google.com/)
+
 
 
 ### Fuentes de información:
