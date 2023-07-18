@@ -223,6 +223,7 @@ with tab2:
     col1, col2 = st.columns(2)
     with col1:
         # Asegurarse de que la columna de fecha sea de tipo datetime
+        st.markdown(" ")
         data['Datetime'] = pd.to_datetime(data['Datetime'])
 
         # Filtrar las columnas relevantes
@@ -245,7 +246,9 @@ with tab2:
 
         # Personalizar el layout del gráfico
         fig.update_layout(
-            title=dict(text='Total de daño en dólares por país ($Mil)', y=0.95, x=0.3),width=500, height=400
+            title=dict(text='Total de daño en dólares por país ($Mil)'),
+            width=500, 
+            height=400
         )
 
         # Mostrar el gráfico
