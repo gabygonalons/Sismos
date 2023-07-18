@@ -618,7 +618,10 @@ with col1:
     st.markdown('[Linkedin](https://www.linkedin.com/public-profile/settings?trk=d_flagship3_profile_self_view_public_profile)')
     st.markdown('[Github](https://github.com/gabygonalons)')
     st.markdown("<a href='https://www.linkedin.com/public-profile/settings?trk=d_flagship3_profile_self_view_public_profile'>  <img src='src/linkedin.png'>", unsafe_allow_html=True)
-
+    
+    url = "https://www.linkedin.com/public-profile/settings?trk=d_flagship3_profile_self_view_public_profile"
+    image_url = 'src/linkedin.png'
+    st.markdown(f'<a href="{url}">{st.image(image_url, caption="Haz clic en la imagen")}</a>', unsafe_allow_html=True)
 with col2:
     maxi = Image.open("src/maxi.png")
     st.image(maxi)
