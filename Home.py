@@ -27,6 +27,7 @@ st.markdown("---")
 #CUERPO 1, "Machine learning", mapas y últimas alertas.
 st.markdown('<a href="http://54.233.115.161:8501/" target="_blank"><style>.primary {color:#FAF8F8;background-color: #20252C;padding:14px, 26px; font-size:18px; cursor: pointer; border: 1px solid #6E6F6F; border-radius:6px}</style><button class="primary">Earthquake Classification APP</button></a>', unsafe_allow_html=True)
 
+#Gráficos Machine Leaning
 with st.expander("Observación y clasificación sísmica en tiempo real"):
 
     #Crear columnas
@@ -153,7 +154,9 @@ rango_anios = st.sidebar.select_slider('Selecciona un rango de años', options=l
 
 imgsbase = Image.open("src/logo analytics world.png")
 st.sidebar.image(imgsbase, use_column_width=True)
-################################## Gráficos ###################################
+
+################################## GRÁFICOS ###################################
+################################## Datos historicos############################
 
 tab1, tab2, tab3 = st.tabs(["       Sísmos Importantes     ", "     Daños     ", "      KPIs     "])
 with tab1:
@@ -214,6 +217,8 @@ with tab1:
             st.plotly_chart(fig2, use_container_width=True)
     with st.expander("***¿Qué es la La Escala de Mercalli?***"):
         st.markdown("***La Escala de Mercalli*** evalúa los efectos y daños observados en estructuras, personas y el entorno. Esta escala va desde el grado I (no se siente) hasta el grado XII (daños totales).")
+
+##################################Dashboard daños###############################################
 
 with tab2:
     usa['País'] = 'Estados Unidos'
@@ -333,9 +338,9 @@ with tab2:
         # Mostrar el gráfico
         st.plotly_chart(fig, use_container_width=True)
 
-
+################################## KPIs######################################################################
 with tab3:
-    ################################## KPIs######################################################################
+    
     tab1, tab2, tab3, tab4 = st.tabs(["Tasa de Click de la notificación de la app", "Tasa de fallos", "Tiempo de Ejecución", "Tasa de satisfacción" ])
     df = pd.read_csv('data_indicadores.csv')
     col1, col2 = st.columns(2)

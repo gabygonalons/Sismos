@@ -1,4 +1,8 @@
 import streamlit as st
+from PIL import Image
+
+imgsbase = Image.open("src/logo analytics world.png")
+st.sidebar.image(imgsbase, use_column_width=True)
 
 #Titulo1
 st.markdown("# Sobre el Sistema de Alertas Sísmicas")
