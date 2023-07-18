@@ -631,7 +631,7 @@ with col3:
     st.image(juanma)
     st.markdown("<h5 style= 'text-align: center;'>Juan Manuel Rossi</h5>", unsafe_allow_html=True)
     st.markdown("<p style= 'text-align: center;'>Data Engineer</p>", unsafe_allow_html=True)
-    st.markdown('Linkedin:[contactar](https://www.linkedin.com/in/juan-manuel-rossi-77b578264/)')
+    st.markdown('***Linkedin:***[contactar](https://www.linkedin.com/in/juan-manuel-rossi-77b578264/)')
     st.markdown('***Github:*** [visitar](https://github.com/juanma-rossi)')
 with col4:
     ivan = Image.open("src/ivan.png")
