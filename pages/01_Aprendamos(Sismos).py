@@ -16,7 +16,7 @@ st.markdown("Otra causa asociada a menor escala, son los terremotos inducidos, l
 #Título h2
 st.markdown("## ¿Cómo se miden los sismos?")
 #Párrafo 1
-st.marckdown('Los movimientos sísmicos son detectados con unos aparatos llamados sismógrafos y acelerógrafos, que ayudan a medir el tamaño del movimiento en diversas direcciones. Al ocurrir un sismo, se puede medir tanto su magnitud como su intensidad. Para ello, se utilizan varias escalas, pero las más comunes son la **escala de Richter**, que brinda información sobre la *magnitud o "causa" del siniestro*; y la de **Mercalli**, que indica la *intensidad o "efectos"* del mismo.')
+st.marckdown('Los movimientos sísmicos son detectados con unos aparatos llamados sismógrafos y acelerógrafos, que ayudan a medir el tamaño del movimiento en diversas direcciones. Al ocurrir un sismo, se puede medir tanto su magnitud como su intensidad. Para ello, se utilizan varias escalas, pero las más comunes son la **escala de Richter**, que brinda información sobre la magnitud o "causa" del siniestro; y la de **Mercalli**, que indica la intensidad o "efectos" del mismo.')
 #Párrafo2
 st.marckdown('A través de la escala de Richter, nombrada así en honor a un sismólogo estadounidense, se puede conocer el **"tamaño"** del sismo. Dicha cifra, calculada mediante una expresión matemática, dará cuenta de la cantidad de energía liberada en la zona interior de la tierra donde se inició la fractura que dio origen al sismo.')
 #Párrafo 3

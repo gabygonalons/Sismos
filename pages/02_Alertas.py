@@ -5,11 +5,11 @@ st.markdown("# Alertas")
 #Título h2
 st.markdown("## ¿Se pueden predecir los sismos?")
 #Párrafo 1
-st.markdown(" Hasta hoy, no existe una técnica que permita predecir los sismos. Ni países como Estados Unidos y Japón cuya tecnología es muy avanzada, han sido capaces de desarrollar una técnica predictiva de temblores. La única certeza que existe es quela tierra tiembla constantemente y que debemos estar preparados. Ante cualquier evento sísmico lo único que nos puede ayudar es la prevención.")
+st.markdown("Hasta hoy, no existe una técnica que permita predecir los sismos. Ni países como Estados Unidos y Japón cuya tecnología es muy avanzada, han sido capaces de desarrollar una técnica predictiva de temblores. La única certeza que existe es quela tierra tiembla constantemente y que debemos estar preparados. Ante cualquier evento sísmico lo único que nos puede ayudar es la prevención.")
 #Título h2
 st.markdown("## ¿Qué son las Alertas sísmicas?")
 #Párrafo 2
-st.markdown(" Las alertas sísmicas, son señales de advertensia que permiten iniciar oportunamente procedimientos y acciones de prevención segundos antes del arribo de las ondas sísmicas que pueden ocasionar daños.")
+st.markdown("Las alertas sísmicas, son señales de advertensia que permiten iniciar oportunamente procedimientos y acciones de prevención segundos antes del arribo de las ondas sísmicas que pueden ocasionar daños.")
 #Título h2
 st.markdown("## Tipos de alertas")
 #Párrafo 3
