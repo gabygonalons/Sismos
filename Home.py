@@ -622,15 +622,15 @@ with col2:
     maxi = Image.open("src/maxi.png")
     st.image(maxi)
     st.markdown("<h5 style= 'text-align: center;'>Maximiliano Baldomá</h5>", unsafe_allow_html=True)
-    st.markdown("<p style= 'text-align: center;'>Data Engeneer</p>", unsafe_allow_html=True)
-    st.markdown('Linkedin: [contactar](https://www.linkedin.com/in/maximiliano-baldom%C3%A1-182056238/)')
+    st.markdown("<p style= 'text-align: center;'>Data Engineer</p>", unsafe_allow_html=True)
+    st.markdown('Linkedin: [contactar](linkedin.com/in/maximiliano-baldomá-182056238)')
     st.markdown('Github: [visitar](https://github.com/Maxibaldoma)')
 
 with col3:
     juanma = Image.open("src/juanma.png")
     st.image(juanma)
     st.markdown("<h5 style= 'text-align: center;'>Juan Manuel Rossi</h5>", unsafe_allow_html=True)
-    st.markdown("<p style= 'text-align: center;'>Data Engeneer</p>", unsafe_allow_html=True)
+    st.markdown("<p style= 'text-align: center;'>Data Engineer</p>", unsafe_allow_html=True)
     st.markdown('Linkedin:[contactar](https://www.linkedin.com/in/juan-manuel-rossi-77b578264/)')
     st.markdown('Github: [visitar](https://github.com/juanma-rossi)')
 with col4:
