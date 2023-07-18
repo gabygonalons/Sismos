@@ -276,6 +276,7 @@ with tab2:
         # Personalizar el layout del gráfico
         fig.update_layout(
             hovermode='x',  # Habilitar la selección al pasar el cursor sobre las barras
+            height=400
         )
 
         # Agregar información adicional al pasar el cursor sobre las barras
