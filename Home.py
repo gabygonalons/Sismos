@@ -20,7 +20,6 @@ st.set_page_config(
 imghead = Image.open("src/banner.png")
 st.image(imghead)
 
-
 st.markdown("---")
 
 ######################################### RESULTADO ML #####################################
@@ -215,7 +214,7 @@ with tab1:
             fig2.update_traces(line=dict(color='orange'))
             fig2.update_layout(xaxis_title='Año', yaxis_title='Cantidad de sismos', title='Sismos por año', margin = dict(b=36), height=315)
             st.plotly_chart(fig2, use_container_width=True)
-    with st.expander("***¿Qué es la La Escala de Mercalli?***"):
+    with st.expander("***¿Qué es La Escala de Mercalli?***"):
         st.markdown("***La Escala de Mercalli*** evalúa los efectos y daños observados en estructuras, personas y el entorno. Esta escala va desde el grado I (no se siente) hasta el grado XII (daños totales).")
 
 ##################################Dashboard daños###############################################
@@ -608,7 +607,39 @@ with tab3:
             st.plotly_chart(fig, use_container_width=True)
 
 st.markdown("---")
+st.markdown('### Equipo de Trabajo')
 
+col1, col2, col3, col4 = st.columns(4)
+with col1:
+    gaby = Image.open("src/gaby.png")
+    st.image(gaby)
+    st.markdown("<h5 style= 'text-align: center;'>Gabriela Goñalons</h5>", unsafe_allow_html=True)
+    st.markdown("<p style= 'text-align: center;'>Data Analyst</p>", unsafe_allow_html=True)
+    st.markdown('***Linkedin:*** [contactar](https://www.linkedin.com/public-profile/settings?trk=d_flagship3_profile_self_view_public_profile)')
+    st.markdown('***Github:*** [visitar](https://github.com/gabygonalons)')
+     
+with col2:
+    maxi = Image.open("src/maxi.png")
+    st.image(maxi)
+    st.markdown("<h5 style= 'text-align: center;'>Maximiliano Baldomá</h5>", unsafe_allow_html=True)
+    st.markdown("<p style= 'text-align: center;'>Data Engineer</p>", unsafe_allow_html=True)
+    st.markdown('***Linkedin:*** [contactar](linkedin.com/in/maximiliano-baldomá-182056238)')
+    st.markdown('***Github:*** [visitar](https://github.com/Maxibaldoma)')
+
+with col3:
+    juanma = Image.open("src/juanma.png")
+    st.image(juanma)
+    st.markdown("<h5 style= 'text-align: center;'>Juan Manuel Rossi</h5>", unsafe_allow_html=True)
+    st.markdown("<p style= 'text-align: center;'>Data Engineer</p>", unsafe_allow_html=True)
+    st.markdown('Linkedin:[contactar](https://www.linkedin.com/in/juan-manuel-rossi-77b578264/)')
+    st.markdown('***Github:*** [visitar](https://github.com/juanma-rossi)')
+with col4:
+    ivan = Image.open("src/ivan.png")
+    st.image(ivan)
+    st.markdown("<h5 style= 'text-align: center;'>Iván Cepeda</h5>", unsafe_allow_html=True)
+    st.markdown("<p style= 'text-align: center;'>Data Analyst</p>", unsafe_allow_html=True)
+    st.markdown('***Linkedin:*** [contactar](https://www.linkedin.com/in/ivancepeda/)')
+    st.markdown('***Github:*** [visitar](https://github.com/Ivan-Cepeda)')
 
      
 
