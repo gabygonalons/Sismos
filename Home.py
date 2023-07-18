@@ -623,10 +623,11 @@ with col1:
 with col2:
     maxi = Image.open("src/maxi.png")
     st.image(maxi)
-    st.markdown("<h5 style= 'text-align: center;'>Maxi Baldomá</h5>", unsafe_allow_html=True)
+    st.markdown("<h5 style= 'text-align: center;'>Maximiliano Baldomá</h5>", unsafe_allow_html=True)
     st.markdown("<p style= 'text-align: center;'>Data Engeneer</p>", unsafe_allow_html=True)
-    st.markdown('[Linkedin](https://www.linkedin.com/in/maximiliano-baldom%C3%A1-182056238/)')
+    st.markdown("<a href='https://www.linkedin.com/in/maximiliano-baldom%C3%A1-182056238/' style= 'text-align: center;'>Linkedin</a>", unsafe_allow_html=True)
     st.markdown('[Github](https://github.com/Maxibaldoma)')
+html
 
 with col3:
     juanma = Image.open("src/juanma.png")
@@ -640,8 +641,6 @@ with col4:
     st.image(ivan)
     st.markdown("<h5 style= 'text-align: center;'>Iván Cepeda</h5>", unsafe_allow_html=True)
     st.markdown("<p style= 'text-align: center;'>Data Analyst</p>", unsafe_allow_html=True)
-    st.markdown('Ivan Cepeda')
-    st.markdown('Data Analyst')
     st.markdown('[Linkedin](https://www.linkedin.com/in/ivancepeda/)')
     st.markdown('[Github](https://github.com/Ivan-Cepeda)')
 
