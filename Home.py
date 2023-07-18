@@ -615,33 +615,31 @@ with col1:
     st.image(gaby)
     st.markdown("<h5 style= 'text-align: center;'>Gabriela Goñalons</h5>", unsafe_allow_html=True)
     st.markdown("<p style= 'text-align: center;'>Data Analyst</p>", unsafe_allow_html=True)
-    st.markdown('[Linkedin](https://www.linkedin.com/public-profile/settings?trk=d_flagship3_profile_self_view_public_profile)')
-    st.markdown('[Github](https://github.com/gabygonalons)')
+    st.markdown('Linkedin: [Perfil](https://www.linkedin.com/public-profile/settings?trk=d_flagship3_profile_self_view_public_profile)')
+    st.markdown('Github: sd[Perfil](https://github.com/gabygonalons)')
      
 with col2:
     maxi = Image.open("src/maxi.png")
     st.image(maxi)
     st.markdown("<h5 style= 'text-align: center;'>Maximiliano Baldomá</h5>", unsafe_allow_html=True)
     st.markdown("<p style= 'text-align: center;'>Data Engeneer</p>", unsafe_allow_html=True)
-    st.markdown("<a href='https://www.linkedin.com/in/maximiliano-baldom%C3%A1-182056238/' style='display: block; text-align: center;'>Linkedin</a>", unsafe_allow_html=True)
-    st.markdown('[Linkedin](https://www.linkedin.com/public-profile/settings?trk=d_flagship3_profile_self_view_public_profile)')
-    st.markdown('[Github](https://github.com/Maxibaldoma)')
-    st.markdown("<div style=‘text-align: center’>Linkedin</div>", unsafe_allow_html=True)
+    st.markdown("Linkedin: [Perfil](https://www.linkedin.com/in/maximiliano-baldom%C3%A1-182056238/)")
+    st.markdown('Github: [Perfil](https://github.com/Maxibaldoma)')
 
 with col3:
     juanma = Image.open("src/juanma.png")
     st.image(juanma)
     st.markdown("<h5 style= 'text-align: center;'>Juan Manuel Rossi</h5>", unsafe_allow_html=True)
     st.markdown("<p style= 'text-align: center;'>Data Engeneer</p>", unsafe_allow_html=True)
-    st.markdown('[Linkedin](https://www.linkedin.com/in/juan-manuel-rossi-77b578264/)')
-    st.markdown('[Github](https://github.com/juanma-rossi)')
+    st.markdown('Linkedin:[perfil](https://www.linkedin.com/in/juan-manuel-rossi-77b578264/)')
+    st.markdown('Github: [perfil](https://github.com/juanma-rossi)')
 with col4:
     ivan = Image.open("src/ivan.png")
     st.image(ivan)
     st.markdown("<h5 style= 'text-align: center;'>Iván Cepeda</h5>", unsafe_allow_html=True)
     st.markdown("<p style= 'text-align: center;'>Data Analyst</p>", unsafe_allow_html=True)
-    st.markdown('[Linkedin](https://www.linkedin.com/in/ivancepeda/)')
-    st.markdown('[Github](https://github.com/Ivan-Cepeda)')
+    st.markdown('Linkedin: [perfil](https://www.linkedin.com/in/ivancepeda/)')
+    st.markdown('Github: [perfil](https://github.com/Ivan-Cepeda)')
 
      
 
