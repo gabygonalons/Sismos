@@ -623,7 +623,7 @@ with col2:
     st.image(maxi)
     st.markdown("<h5 style= 'text-align: center;'>Maximiliano Baldomá</h5>", unsafe_allow_html=True)
     st.markdown("<p style= 'text-align: center;'>Data Engeneer</p>", unsafe_allow_html=True)
-    st.markdown("<div style='display: flex; justify-content: center;'><a href='https://www.linkedin.com/in/maximiliano-baldom%C3%A1-182056238/'>Linkedin!</a></div>", unsafe_allow_html=True)
+    st.markdown("<a href='https://www.linkedin.com/in/maximiliano-baldom%C3%A1-182056238/' style='display: block; text-align: center;'>Linkedin</a>", unsafe_allow_html=True)
     st.markdown('[Github](https://github.com/Maxibaldoma)')
 
 with col3:
