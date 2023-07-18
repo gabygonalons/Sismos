@@ -617,17 +617,13 @@ with col1:
     st.markdown("<p style= 'text-align: center;'>Data Analyst</p>", unsafe_allow_html=True)
     st.markdown('[Linkedin](https://www.linkedin.com/public-profile/settings?trk=d_flagship3_profile_self_view_public_profile)')
     st.markdown('[Github](https://github.com/gabygonalons)')
-    st.markdown("<a href='https://www.linkedin.com/public-profile/settings?trk=d_flagship3_profile_self_view_public_profile'>  <img src='src/linkedin.png'>", unsafe_allow_html=True)
-    
-    url = "https://www.linkedin.com/public-profile/settings?trk=d_flagship3_profile_self_view_public_profile"
-    image_url = 'src/linkedin.png'
-    st.markdown(f'<a href="{url}">{st.image(image_url, caption="Haz clic en la imagen")}</a>', unsafe_allow_html=True)
+     
 with col2:
     maxi = Image.open("src/maxi.png")
     st.image(maxi)
     st.markdown("<h5 style= 'text-align: center;'>Maximiliano Baldomá</h5>", unsafe_allow_html=True)
     st.markdown("<p style= 'text-align: center;'>Data Engeneer</p>", unsafe_allow_html=True)
-    st.markdown("<a style= 'text-align: center;' href='https://www.linkedin.com/in/maximiliano-baldom%C3%A1-182056238/'>Linkedin</a>", unsafe_allow_html=True)
+    st.markdown("<div style='display: flex; justify-content: center;'><a'https://www.linkedin.com/in/maximiliano-baldom%C3%A1-182056238/'>Linkedin</a></div>", unsafe_allow_html=True)
     st.markdown('[Github](https://github.com/Maxibaldoma)')
 
 with col3:
