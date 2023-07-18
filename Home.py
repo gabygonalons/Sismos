@@ -245,7 +245,7 @@ with tab2:
 
         # Personalizar el layout del gráfico
         fig.update_layout(
-            title=dict(text='Total de daño en dólares por país ($Mil)', y=0.95, x=0.5),
+            title=dict(text='Total de daño en dólares por país ($Mil)', y=0.95, x=0.3),width=500, height=400
         )
 
         # Mostrar el gráfico
