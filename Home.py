@@ -617,6 +617,7 @@ with col1:
     st.markdown("<p style= 'text-align: center;'>Data Analyst</p>", unsafe_allow_html=True)
     st.markdown('[Linkedin](https://www.linkedin.com/public-profile/settings?trk=d_flagship3_profile_self_view_public_profile)')
     st.markdown('[Github](https://github.com/gabygonalons)')
+    st.markdown("<a href='https://www.linkedin.com/public-profile/settings?trk=d_flagship3_profile_self_view_public_profile'>  <img src='src\linkedin.png'>")
 
 with col2:
     maxi = Image.open("src/maxi.png")
