@@ -20,30 +20,6 @@ st.set_page_config(
 imghead = Image.open("src/banner.png")
 st.image(imghead)
 
-col1, col2, col3, col4 = st.columns(4)
-with col1:
-    gaby = Image.open("src/gaby.png")
-    st.image(gaby)
-    st.markdown('[Linkedin](https://www.linkedin.com/public-profile/settings?trk=d_flagship3_profile_self_view_public_profile)')
-    st.markdown('[Github](https://github.com/gabygonalons)')
-
-with col2:
-    maxi = Image.open("src/maxi.png")
-    st.image(maxi)
-    st.markdown('[Linkedin](https://www.linkedin.com/in/maximiliano-baldom%C3%A1-182056238/)')
-    st.markdown('[Github](https://github.com/Maxibaldoma)')
-
-with col3:
-    juanma = Image.open("src/juanma.png")
-    st.image(juanma)
-    st.markdown('[Linkedin](https://www.linkedin.com/in/juan-manuel-rossi-77b578264/)')
-    st.markdown('[Github](https://github.com/juanma-rossi)')
-with col4:
-    ivan = Image.open("src/ivan.png")
-    st.image(ivan)
-    st.markdown('[Linkedin](https://www.linkedin.com/in/ivancepeda/)')
-    st.markdown('[Github](https://github.com/Ivan-Cepeda)')
-
 st.markdown("---")
 
 ######################################### RESULTADO ML #####################################
@@ -632,6 +608,29 @@ with tab3:
 
 st.markdown("---")
 
+col1, col2, col3, col4 = st.columns(4)
+with col1:
+    gaby = Image.open("src/gaby.png")
+    st.image(gaby)
+    st.markdown('[Linkedin](https://www.linkedin.com/public-profile/settings?trk=d_flagship3_profile_self_view_public_profile)')
+    st.markdown('[Github](https://github.com/gabygonalons)')
+
+with col2:
+    maxi = Image.open("src/maxi.png")
+    st.image(maxi)
+    st.markdown('[Linkedin](https://www.linkedin.com/in/maximiliano-baldom%C3%A1-182056238/)')
+    st.markdown('[Github](https://github.com/Maxibaldoma)')
+
+with col3:
+    juanma = Image.open("src/juanma.png")
+    st.image(juanma)
+    st.markdown('[Linkedin](https://www.linkedin.com/in/juan-manuel-rossi-77b578264/)')
+    st.markdown('[Github](https://github.com/juanma-rossi)')
+with col4:
+    ivan = Image.open("src/ivan.png")
+    st.image(ivan)
+    st.markdown('[Linkedin](https://www.linkedin.com/in/ivancepeda/)')
+    st.markdown('[Github](https://github.com/Ivan-Cepeda)')
 
      
 
