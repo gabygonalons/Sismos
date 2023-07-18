@@ -16,13 +16,13 @@ st.markdown("Otra causa asociada a menor escala, son los terremotos inducidos, l
 #Título h2
 st.markdown("## ¿Cómo se miden los sismos?")
 #Párrafo 1
-st.marckdown("## Los movimientos sísmicos son detectados con unos aparatos llamados sismógrafos y acelerógrafos, que ayudan a medir el tamaño del movimiento en diversas direcciones. Al ocurrir un sismo, se puede medir tanto su magnitud como su intensidad. Para ello, se utilizan varias escalas, pero las más comunes son la **escala de Richter**, que brinda información sobre la *magnitud o 'causa' del siniestro*; y la de **Mercalli**, que indica la *intensidad o 'efectos'* del mismo.")
+st.marckdown('Los movimientos sísmicos son detectados con unos aparatos llamados sismógrafos y acelerógrafos, que ayudan a medir el tamaño del movimiento en diversas direcciones. Al ocurrir un sismo, se puede medir tanto su magnitud como su intensidad. Para ello, se utilizan varias escalas, pero las más comunes son la **escala de Richter**, que brinda información sobre la *magnitud o "causa" del siniestro*; y la de **Mercalli**, que indica la *intensidad o "efectos"* del mismo.')
 #Párrafo2
-st.marckdown('## A través de la escala de Richter, nombrada así en honor a un sismólogo estadounidense, se puede conocer el **"tamaño"** del sismo. Dicha cifra, calculada mediante una expresión matemática, dará cuenta de la cantidad de energía liberada en la zona interior de la tierra donde se inició la fractura que dio origen al sismo.')
+st.marckdown('A través de la escala de Richter, nombrada así en honor a un sismólogo estadounidense, se puede conocer el **"tamaño"** del sismo. Dicha cifra, calculada mediante una expresión matemática, dará cuenta de la cantidad de energía liberada en la zona interior de la tierra donde se inició la fractura que dio origen al sismo.')
 #Párrafo 3
-st.marckdown("## La escala de Mercalli, en cambio, dará información basada en los **efectos** que produjo el sismo sobre las personas, objetos y espacios. A diferencia de la magnitud, este dato variará según la distancia de cada lugar hacia el foco del sismo, con lo que un sismo tendrá una magnitud única pero intensidades diferentes en cada localidad.")
+st.marckdown("La escala de Mercalli, en cambio, dará información basada en los **efectos** que produjo el sismo sobre las personas, objetos y espacios. A diferencia de la magnitud, este dato variará según la distancia de cada lugar hacia el foco del sismo, con lo que un sismo tendrá una magnitud única pero intensidades diferentes en cada localidad.")
 #Título h2
-st.markdown("## ¿Qué expresan la magnitud y la profundidad de un sismo?")
+st.markdown("¿Qué expresan la magnitud y la profundidad de un sismo?")
 #Párrafo 1
 st.markdown("***La magnitud:*** de un sismo es una medida cuantitativa de la energía liberada durante el movimiento de las placas tectónicas. Se calcula utilizando escalas como la Escala de Richter o la Escala de Magnitud de Momento. Conocer la magnitud del sismo nos proporciona información sobre la fuerza y la violencia del terremoto en su origen. Es una medida fundamental para comparar y clasificar diferentes terremotos. Fuente: http://www.ssn.unam.mx/, Magnitud de un sismo")
 #Parafo 2
