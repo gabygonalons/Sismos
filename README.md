@@ -1,4 +1,5 @@
 # Sismos
+
 ## ¿Qué son los sismos?
 
 Un terremoto​, también llamado sismo, temblor de tierra o movimiento telúrico, es la sacudida brusca y pasajera de la corteza terrestre. 
@@ -42,8 +43,6 @@ Los avances tecnológicos han permitido el accceso a los datos prácticamente en
 *Colaborar con la alianza tri-nacional con el máximo nivel de eficacia, eficiencia y profesionalimo.*
 
 ## Objetivos
-
-- Crear una base de datos, con la información sobre la actividad sísmica de los países miembros de la alianza: Estados Unidos, Japón y México.
 - Identificar las zonas de mayor riesgo a través de la individualización de patrones y tendencias dentro de los datos.
 - Clasificar los eventos sísmicos a partir de sus características.
 - Informar sobre los posibles efectos secundarios de los eventos sísmicos conforme a su clasificación.
@@ -59,6 +58,10 @@ Para la ejecución del proyecto los integrantes del equipo conforman dos grupos:
 ## Alcance
 
 El proyecto persigue la segmentación, filtrado y transformación de los datos disponibles, acerca de los distintos eventos sísmicos que se encuentren relacionados o tengan implicación con el área geográfica de los países miembros de la alianza tri-Nacional.  Esto permitirá disponibilizar ésta información en dos datasets: uno de actualización permanente para la emisión de Alertas y otro Histórico cuya información resulta de interés para procesos de enseñanza, investigación y previsión.
+
+## Líneas de Acción
+- Crear base de datos, con la información sobre la actividad sísmica de los países miembros de la alianza: Estados Unidos, Japón y México una con información actualizada en tiempo real y otra con información histórica.
+- 
 
 ## Solución Propuesta
 
