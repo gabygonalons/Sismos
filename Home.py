@@ -155,7 +155,7 @@ imgsbase = Image.open("src/logo analytics world.png")
 st.sidebar.image(imgsbase, use_column_width=True)
 ################################## Gráficos ###################################
 
-tab1, tab2 = st.tabs(["       Sísmos Importantes     ", "      KPIs     "])
+tab1, tab2, tab3 = st.tabs(["       Sísmos Importantes     ", "     Daños     ", "      KPIs     "])
 with tab1:
     with st.container():
         col1, col2 = st.columns(2)
@@ -216,6 +216,120 @@ with tab1:
         st.markdown("***La Escala de Mercalli*** evalúa los efectos y daños observados en estructuras, personas y el entorno. Esta escala va desde el grado I (no se siente) hasta el grado XII (daños totales).")
 
 with tab2:
+    usa['País'] = 'Estados Unidos'
+    jp['País'] = 'Japón'
+    mex['País'] = 'México'
+    data = pd.concat([usa, jp, mex])
+    col1, col2 = st.columns(2)
+    with col1:
+        # Asegurarse de que la columna de fecha sea de tipo datetime
+        data['Datetime'] = pd.to_datetime(data['Datetime'])
+
+        # Filtrar las columnas relevantes
+        df_filtered = data[['País', 'Total Damage ($Mil)']]
+
+        # Calcular el total de daño en dólares para cada país
+        total_damage = df_filtered.groupby('País')['Total Damage ($Mil)'].sum()
+
+        # Crear una lista de colores personalizados para cada país
+        colores_paises = {'Japón': 'red', 'México': 'green', 'Estados Unidos': 'blue'}
+        colors = [colores_paises[pais] if pais in colores_paises else 'gray' for pais in total_damage.index]
+
+        # Crear el gráfico de pastel
+        fig = go.Figure(go.Pie(labels=total_damage.index,
+                            values=total_damage.values,
+                            hoverinfo='label+percent',
+                            textinfo='value+label',
+                            textfont_size=14,
+                            marker=dict(colors=colors)))
+
+        # Personalizar el layout del gráfico
+        fig.update_layout(
+            title=dict(text='Total de daño en dólares por país ($Mil)', y=0.95, x=0.5),
+        )
+
+        # Mostrar el gráfico
+        st.plotly_chart(fig, use_container_width=True)    
+    
+    with col2:
+        # Asegurarse de que la columna de fecha sea de tipo datetime
+        data['Datetime'] = pd.to_datetime(data['Datetime'])
+
+        # Filtrar las columnas relevantes
+        df_filtered = data[['País', 'Deaths']]
+
+        # Calcular el total de muertos para cada país
+        total_deaths = df_filtered.groupby('País')['Deaths'].sum()
+
+        # Crear una lista de colores personalizados para cada país
+        colores_paises = {'Japón': 'red', 'México': 'green', 'Estados Unidos': 'blue'}
+        colors = [colores_paises.get(pais, 'gray') for pais in total_deaths.index]
+
+        # Crear el gráfico de barras para la cantidad de muertes
+        fig = px.bar(total_deaths, x=total_deaths.index, y=total_deaths.values, color=total_deaths.index,
+                    color_discrete_map=colores_paises,  # Especificar el mapeo de colores
+                    title='Total de muertes por país', labels={'x': 'País', 'y': 'Total de muertes'})
+
+        # Personalizar el layout del gráfico
+        fig.update_layout(
+            hovermode='x',  # Habilitar la selección al pasar el cursor sobre las barras
+        )
+
+        # Agregar información adicional al pasar el cursor sobre las barras
+        fig.update_traces(hovertemplate='<b>%{x}</b><br>Total de muertes: %{y}')
+
+        st.plotly_chart(fig, use_container_width=True)
+    
+    col1, col2 = st.columns(2)
+    with col1:
+        # Filtrar las columnas relevantes
+        df_filtered = data[['País', 'Total Houses Damaged', 'Total Injuries']]
+
+        # Calcular el total de daño sufrido en las casas y la cantidad de heridos para cada país
+        total_houses_damaged = df_filtered.groupby('País')['Total Houses Damaged'].sum()
+        total_injuries = df_filtered.groupby('País')['Total Injuries'].sum()
+
+        # Crear el DataFrame para el scatter plot
+        scatter_data = pd.DataFrame({'Total Houses Damaged': total_houses_damaged, 'Total Injuries': total_injuries})
+
+        # Crear el gráfico de dispersión
+        fig = px.scatter(scatter_data, x='Total Houses Damaged', y='Total Injuries', text=scatter_data.index,
+                        title='Total de Daño en Casas vs. Cantidad de Heridos por País')
+
+        # Personalizar el layout del gráfico
+        fig.update_layout(
+            xaxis_title='Total de Daño en Casas',
+            yaxis_title='Cantidad de Heridos',
+        )
+
+        # Mostrar el gráfico
+        st.plotly_chart(fig, use_container_width=True)
+# Unir los datasets en uno solo
+
+    with col2:
+        # Filtrar las columnas relevantes
+        df_filtered = data[['País', 'Total Injuries', 'Deaths']]
+
+        # Apilar los valores de las columnas 'Total Injuries' y 'Deaths' en una sola columna llamada 'Cantidad'
+        df_melted = df_filtered.melt(id_vars='País', value_vars=['Total Injuries', 'Deaths'],
+                                    var_name='Categoría', value_name='Cantidad')
+
+        # Crear el gráfico de violín
+        fig = px.violin(df_melted, x='País', y='Cantidad', color='Categoría', points="all",
+                        title='Relación entre Cantidad de Heridos y Muertos por País',
+                        labels={'Cantidad': 'Cantidad', 'Categoría': 'Categoría'})
+
+        # Personalizar el layout del gráfico
+        fig.update_layout(
+            xaxis_title='País',
+            yaxis_title='Cantidad',
+        )
+
+        # Mostrar el gráfico
+        st.plotly_chart(fig, use_container_width=True)
+
+
+with tab3:
     ################################## KPIs######################################################################
     tab1, tab2, tab3, tab4 = st.tabs(["Tasa de Click de la notificación de la app", "Tasa de fallos", "Tiempo de Ejecución", "Tasa de satisfacción" ])
     df = pd.read_csv('data_indicadores.csv')
