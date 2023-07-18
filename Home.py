@@ -244,9 +244,7 @@ with tab2:
                 'shape': 'angular',
                 'axis': {'range': [0, 100]},  # Actualizar el rango del eje vertical
                 'bar': {'color': "orange"},
-                'steps': [
-                    {'range': [0, 100], 'color': 'white'},  # Eliminar los rangos de color
-                ]
+                
             }
         ))
 
@@ -270,8 +268,8 @@ with tab2:
         fig.update_layout(
             sliders=sliders,
             autosize=False,
-            width=500,
-            height=400
+            width=500,  
+            height=400  
         )
 
         st.plotly_chart(fig, use_container_width=True)
@@ -280,8 +278,6 @@ with tab2:
 
         ###########################"Tasa de fallos"##################
         # Convertir la columna 'date' a tipo fecha
-        df['date'] = pd.to_datetime(df['date'])
-
         # Ordenar los datos por fecha
         df = df.sort_values('date')
 
@@ -305,9 +301,7 @@ with tab2:
                 'shape': 'angular',
                 'axis': {'range': [0, 10]},  # Modificar el rango del eje vertical
                 'bar': {'color': "orange"},
-                'steps': [
-                    {'range': [0, max(df['failure_rate'])], 'color': 'white'},
-                ]
+                
             }
         ))
 
