@@ -625,6 +625,7 @@ with col2:
     st.markdown("<p style= 'text-align: center;'>Data Engeneer</p>", unsafe_allow_html=True)
     st.markdown("<a href='https://www.linkedin.com/in/maximiliano-baldom%C3%A1-182056238/' style='display: block; text-align: center;'>Linkedin</a>", unsafe_allow_html=True)
     st.markdown('[Github](https://github.com/Maxibaldoma)')
+    st.markdown("<div style=‘text-align: center’>Linkedin</div>", unsafe_allow_html=True)
 
 with col3:
     juanma = Image.open("src/juanma.png")
