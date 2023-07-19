@@ -31,7 +31,9 @@ st.markdown(" - Informar sobre los posibles efectos secundarios de los eventos s
 #Título h2
 st.markdown("## Líneas de Acción")
 #Párrafo 6
-st.markdown("- Crear una base de datos, con la información sobre la actividad sísmica de los países miembros de la alianza: Estados Unidos, Japón y México.")
+st.markdown(" - Crear una base de datos con información de la actividad sísmica histórica de los países miembros de la alianza para obtención de información relevante para la educación, prevención y predicción.")
+st.markdown(" - Crear una base de datos con información de la actividad sísmica en tiempo real de los países miembros de la alianza para la emisión de alertas sísmicas.")
+st.markdown(" - Elaborar un sitio web que permita la difusión de la información recopilada y de las actividades realizadas en el marco del presente proyecto.")
 
 ##################################KPIs#########################################
 #Título h2
